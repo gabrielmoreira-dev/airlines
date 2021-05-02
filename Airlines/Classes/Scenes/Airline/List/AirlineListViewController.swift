@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AirlineListDisplayLogic: class {
-    func displaySomething(viewModel: AirlineList.GetAirlineList.ViewModel)
+    func displayAirlineList(viewModel: AirlineList.GetAirlineList.ViewModel)
 }
 
 class AirlineListViewController: UIViewController {
@@ -22,15 +22,17 @@ class AirlineListViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         let request = AirlineList.GetAirlineList.Request()
-        interactor?.doSomething(request: request)
+        interactor?.fetchAirlineList(request: request)
     }
 }
 
 extension AirlineListViewController: AirlineListDisplayLogic {
-    func displaySomething(viewModel: AirlineList.GetAirlineList.ViewModel) {
+    func displayAirlineList(viewModel: AirlineList.GetAirlineList.ViewModel) {
         self.viewModel = viewModel
-        viewScreen = AirlineListViewScreen(delegate: self)
-        setupViewScreen()
+        self.viewScreen = AirlineListViewScreen(delegate: self)
+        DispatchQueue.main.async { [weak self] in
+            self?.setupViewScreen()
+        }
     }
 }
 

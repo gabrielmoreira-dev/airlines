@@ -22,6 +22,7 @@
 		137DB655263F104100B4EEBF /* AirlineListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB654263F104100B4EEBF /* AirlineListFactory.swift */; };
 		137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */; };
 		137DB65A263F133A00B4EEBF /* AirlineListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */; };
+		137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65B263F2C9000B4EEBF /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		137DB654263F104100B4EEBF /* AirlineListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListFactory.swift; sourceTree = "<group>"; };
 		137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListViewScreen.swift; sourceTree = "<group>"; };
 		137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListTableViewCell.swift; sourceTree = "<group>"; };
+		137DB65B263F2C9000B4EEBF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				137DB643263F0A4900B4EEBF /* TabBarController.swift */,
+				137DB65B263F2C9000B4EEBF /* ServiceError.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				137DB653263F0D4500B4EEBF /* AirlineListInteractor.swift in Sources */,
 				137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */,
 				137DB651263F0D4500B4EEBF /* AirlineListModels.swift in Sources */,
+				137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */,
 				137DB62E263F071600B4EEBF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,8 @@ enum AirlineList {
     enum GetAirlineList {
         struct Request {
         }
-        struct Response: Decodable {
+        struct Response {
+            let airlines: [Airline]
         }
         struct ViewModel {
             let airlines: [Airline]
@@ -13,8 +14,8 @@ enum AirlineList {
     }
     
     struct Airline: Decodable {
-        let name: String
-        let logo: String
-        let slogan: String
+        let name: String?
+        let logo: String?
+        let slogan: String?
     }
 }

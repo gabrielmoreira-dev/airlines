@@ -1,7 +1,7 @@
 import Foundation
 
 protocol AirlineListPresentationLogic {
-    func presentSomething(response: AirlineList.GetAirlineList.Response)
+    func presentAirlineList(response: AirlineList.GetAirlineList.Response)
 }
 
 class AirlineListPresenter {
@@ -13,11 +13,8 @@ class AirlineListPresenter {
 }
 
 extension AirlineListPresenter: AirlineListPresentationLogic {
-    func presentSomething(response: AirlineList.GetAirlineList.Response) {
-        let airlines = [
-            AirlineList.Airline(name: "example", logo: "", slogan: "slogan")
-        ]
-        let viewModel = AirlineList.GetAirlineList.ViewModel(airlines: airlines)
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentAirlineList(response: AirlineList.GetAirlineList.Response) {
+        let viewModel = AirlineList.GetAirlineList.ViewModel(airlines: response.airlines)
+        viewController?.displayAirlineList(viewModel: viewModel)
     }
 }

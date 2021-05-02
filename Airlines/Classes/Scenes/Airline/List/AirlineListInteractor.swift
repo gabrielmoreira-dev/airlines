@@ -1,7 +1,7 @@
 import Foundation
 
 protocol AirlineListBusinessLogic {
-    func doSomething(request: AirlineList.GetAirlineList.Request)
+    func fetchAirlineList(request: AirlineList.GetAirlineList.Request)
 }
 
 protocol AirlineListDataStore {
@@ -20,10 +20,18 @@ class AirlineListInteractor: AirlineListDataStore {
 }
 
 extension AirlineListInteractor: AirlineListBusinessLogic {
-    func doSomething(request: AirlineList.GetAirlineList.Request) {
-        worker.doSomeWork()
-        
-        let response = AirlineList.GetAirlineList.Response()
-        presenter.presentSomething(response: response)
+    func fetchAirlineList(request: AirlineList.GetAirlineList.Request) {
+        worker.fetchAirlineList() { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+                case .success(let airlines):
+                    let response = AirlineList.GetAirlineList.Response(airlines: airlines)
+                    self.presenter.presentAirlineList(response: response)
+                case .failure(let error):
+                    print(error)
+                    break
+            }
+        }
     }
 }
