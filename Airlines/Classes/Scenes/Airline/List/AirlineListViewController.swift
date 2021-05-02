@@ -28,10 +28,12 @@ class AirlineListViewController: UIViewController {
 
 extension AirlineListViewController: AirlineListDisplayLogic {
     func displayAirlineList(viewModel: AirlineList.GetAirlineList.ViewModel) {
-        self.viewModel = viewModel
-        self.viewScreen = AirlineListViewScreen(delegate: self)
         DispatchQueue.main.async { [weak self] in
-            self?.setupViewScreen()
+            guard let self = self else { return }
+            
+            self.viewModel = viewModel
+            self.viewScreen = AirlineListViewScreen(delegate: self)
+            self.setupViewScreen()
         }
     }
 }

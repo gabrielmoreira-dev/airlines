@@ -23,6 +23,7 @@
 		137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */; };
 		137DB65A263F133A00B4EEBF /* AirlineListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */; };
 		137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65B263F2C9000B4EEBF /* ServiceError.swift */; };
+		137DB65F263F39CD00B4EEBF /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListViewScreen.swift; sourceTree = "<group>"; };
 		137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListTableViewCell.swift; sourceTree = "<group>"; };
 		137DB65B263F2C9000B4EEBF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		137DB642263F0A3800B4EEBF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				137DB65D263F39B300B4EEBF /* Extension */,
 				137DB643263F0A4900B4EEBF /* TabBarController.swift */,
 				137DB65B263F2C9000B4EEBF /* ServiceError.swift */,
 			);
@@ -143,6 +146,14 @@
 				137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		137DB65D263F39B300B4EEBF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137DB65F263F39CD00B4EEBF /* UIImageView+Extension.swift in Sources */,
 				137DB655263F104100B4EEBF /* AirlineListFactory.swift in Sources */,
 				137DB630263F071600B4EEBF /* ViewController.swift in Sources */,
 				137DB652263F0D4500B4EEBF /* AirlineListViewController.swift in Sources */,

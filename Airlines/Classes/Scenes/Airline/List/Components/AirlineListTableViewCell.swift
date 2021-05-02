@@ -7,6 +7,7 @@ class AirlineListTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 20
         return stackView
     }()
     
@@ -16,9 +17,17 @@ class AirlineListTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -26,6 +35,7 @@ class AirlineListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .darkGray
+        label.numberOfLines = 0
         return label
     }()
     
@@ -52,7 +62,6 @@ extension AirlineListTableViewCell {
     
     func setupHierarchy() {
         addSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(verticalStackView)
     }
     
     func setupConstraints() {
@@ -61,6 +70,10 @@ extension AirlineListTableViewCell {
             horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+        ])
+        
+        NSLayoutConstraint.activate([
+            logoImageView.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
@@ -73,8 +86,12 @@ extension AirlineListTableViewCell {
         
         titleLabel.text = title
         subtitleLabel.text = subtitle
+        logoImageView.load(from: imageURL)
         
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(subtitleLabel)
+        
+        horizontalStackView.addArrangedSubview(logoImageView)
+        horizontalStackView.addArrangedSubview(verticalStackView)
     }
 }
