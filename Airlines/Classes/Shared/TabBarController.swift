@@ -4,7 +4,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let firstTabViewController = ViewController()
+        let firstTabViewController = AirlineListFactory.makeController()
         firstTabViewController.tabBarItem = UITabBarItem(title: "Airlines", image: UIImage(systemName: "airplane"), tag: 0)
         
         let secondTabViewController = ViewController()
