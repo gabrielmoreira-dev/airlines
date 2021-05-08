@@ -26,7 +26,6 @@
 		137DB65F263F39CD00B4EEBF /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */; };
 		137DB668263F5AB700B4EEBF /* PassengerListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB662263F5AB700B4EEBF /* PassengerListPresenter.swift */; };
 		137DB669263F5AB700B4EEBF /* PassengerListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB663263F5AB700B4EEBF /* PassengerListWorker.swift */; };
-		137DB66A263F5AB700B4EEBF /* PassengerListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB664263F5AB700B4EEBF /* PassengerListRouter.swift */; };
 		137DB66B263F5AB700B4EEBF /* PassengerListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB665263F5AB700B4EEBF /* PassengerListModels.swift */; };
 		137DB66C263F5AB700B4EEBF /* PassengerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB666263F5AB700B4EEBF /* PassengerListViewController.swift */; };
 		137DB66D263F5AB700B4EEBF /* PassengerListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB667263F5AB700B4EEBF /* PassengerListInteractor.swift */; };
@@ -56,7 +55,6 @@
 		137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		137DB662263F5AB700B4EEBF /* PassengerListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListPresenter.swift; sourceTree = "<group>"; };
 		137DB663263F5AB700B4EEBF /* PassengerListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListWorker.swift; sourceTree = "<group>"; };
-		137DB664263F5AB700B4EEBF /* PassengerListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListRouter.swift; sourceTree = "<group>"; };
 		137DB665263F5AB700B4EEBF /* PassengerListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListModels.swift; sourceTree = "<group>"; };
 		137DB666263F5AB700B4EEBF /* PassengerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListViewController.swift; sourceTree = "<group>"; };
 		137DB667263F5AB700B4EEBF /* PassengerListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListInteractor.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			children = (
 				137DB662263F5AB700B4EEBF /* PassengerListPresenter.swift */,
 				137DB663263F5AB700B4EEBF /* PassengerListWorker.swift */,
-				137DB664263F5AB700B4EEBF /* PassengerListRouter.swift */,
 				137DB665263F5AB700B4EEBF /* PassengerListModels.swift */,
 				137DB666263F5AB700B4EEBF /* PassengerListViewController.swift */,
 				137DB667263F5AB700B4EEBF /* PassengerListInteractor.swift */,
@@ -283,7 +280,6 @@
 				137DB62C263F071600B4EEBF /* AppDelegate.swift in Sources */,
 				137DB64F263F0D4500B4EEBF /* AirlineListWorker.swift in Sources */,
 				137DB653263F0D4500B4EEBF /* AirlineListInteractor.swift in Sources */,
-				137DB66A263F5AB700B4EEBF /* PassengerListRouter.swift in Sources */,
 				137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */,
 				137DB651263F0D4500B4EEBF /* AirlineListModels.swift in Sources */,
 				137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */,

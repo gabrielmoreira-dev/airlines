@@ -2,6 +2,7 @@ import Foundation
 
 protocol PassengerListBusinessLogic {
     func fetchPassengerList(request: PassengerList.GetPassengerList.Request)
+    func getMessage(request: PassengerList.ShowMessage.Request)
 }
 
 protocol PassengerListDataStore {
@@ -38,5 +39,10 @@ extension PassengerListInteractor: PassengerListBusinessLogic {
                     break
             }
         }
+    }
+    
+    func getMessage(request: PassengerList.ShowMessage.Request) {
+        let response = PassengerList.ShowMessage.Response(passenger: passengers[request.index])
+        presenter.presentMessage(response: response)
     }
 }

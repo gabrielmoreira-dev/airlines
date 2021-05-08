@@ -2,20 +2,16 @@ import UIKit
 
 protocol PassengerListDisplayLogic: class {
     func displayPassengerList(viewModel: PassengerList.GetPassengerList.ViewModel)
+    func displayMessage(viewModel: PassengerList.ShowMessage.ViewModel)
 }
 
 class PassengerListViewController: UIViewController {
     private var interactor: PassengerListBusinessLogic?
-    private var router: (NSObjectProtocol & PassengerListRoutingLogic & PassengerListDataPassing)?
     private var viewModel: PassengerList.GetPassengerList.ViewModel?
     private var viewScreen: PassengerListViewScreen?
     
     func configureInterctor(_ interactor: PassengerListBusinessLogic) {
         self.interactor = interactor
-    }
-    
-    func configureRouter(_ router: NSObjectProtocol & PassengerListRoutingLogic & PassengerListDataPassing) {
-        self.router = router
     }
     
     override func viewDidLoad() {
@@ -41,6 +37,14 @@ extension PassengerListViewController: PassengerListDisplayLogic {
             self.viewModel = viewModel
             self.viewScreen?.tableView.reloadData()
         }
+    }
+    
+    func displayMessage(viewModel: PassengerList.ShowMessage.ViewModel) {
+        let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -95,6 +99,12 @@ extension PassengerListViewController: UITableViewDataSource, UITableViewDelegat
         cell?.textLabel?.text = item.name
         cell?.detailTextLabel?.text = "\(item.trips ?? 0) trips"
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let request = PassengerList.ShowMessage.Request(index: indexPath.row)
+        interactor?.getMessage(request: request)
     }
 }
 

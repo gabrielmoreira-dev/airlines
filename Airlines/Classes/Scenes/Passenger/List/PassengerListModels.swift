@@ -19,6 +19,19 @@ enum PassengerList {
         }
     }
     
+    enum ShowMessage {
+        struct Request {
+            let index: Int
+        }
+        struct Response {
+            let passenger: Passenger
+        }
+        struct ViewModel {
+            let title: String
+            let message: String
+        }
+    }
+    
     struct PassengerData: Decodable {
         let data: [Passenger]
         let totalPages: Int

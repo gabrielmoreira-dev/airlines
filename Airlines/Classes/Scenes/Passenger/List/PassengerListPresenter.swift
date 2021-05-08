@@ -2,6 +2,7 @@ import Foundation
 
 protocol PassengerListPresentationLogic {
     func presentPassengerList(response: PassengerList.GetPassengerList.Response)
+    func presentMessage(response: PassengerList.ShowMessage.Response)
 }
 
 class PassengerListPresenter {
@@ -20,5 +21,13 @@ extension PassengerListPresenter: PassengerListPresentationLogic {
             size: response.size
         )
         viewController?.displayPassengerList(viewModel: viewModel)
+    }
+    
+    func presentMessage(response: PassengerList.ShowMessage.Response) {
+        let viewModel = PassengerList.ShowMessage.ViewModel(
+            title: response.passenger.name ?? "",
+            message: "The passenger has \(response.passenger.trips ?? 0) trips."
+        )
+        viewController?.displayMessage(viewModel: viewModel)
     }
 }
