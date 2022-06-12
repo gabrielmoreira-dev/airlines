@@ -1,20 +1,23 @@
-import Foundation
-
-protocol AirlineListPresentationLogic {
-    func presentAirlineList(response: AirlineList.GetAirlineList.Response)
+protocol AirlineListPresenting {
+    func presentAirlineList(_ airlines: [Airline])
+    func didNextStep(action: AirlineListAction)
 }
 
-class AirlineListPresenter {
-    weak var viewController: AirlineListDisplayLogic?
+final class AirlineListPresenter {
+    private let coordinator: AirlineListCoordinating
+    weak var viewController: AirlineListDisplaying?
     
-    init(viewController: AirlineListDisplayLogic) {
-        self.viewController = viewController
+    init(coordinator: AirlineListCoordinating) {
+        self.coordinator = coordinator
     }
 }
 
-extension AirlineListPresenter: AirlineListPresentationLogic {
-    func presentAirlineList(response: AirlineList.GetAirlineList.Response) {
-        let viewModel = AirlineList.GetAirlineList.ViewModel(airlines: response.airlines)
-        viewController?.displayAirlineList(viewModel: viewModel)
+extension AirlineListPresenter: AirlineListPresenting {
+    func presentAirlineList(_ airlines: [Airline]) {
+        viewController?.displayAirlineList(airlines)
+    }
+    
+    func didNextStep(action: AirlineListAction) {
+        coordinator.perform(action: action)
     }
 }

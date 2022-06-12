@@ -1,14 +1,16 @@
-import Foundation
+import UIKit
 
-class AirlineListFactory {
-    static func makeController() -> AirlineListViewController {
-        let viewController = AirlineListViewController()
-        let presenter = AirlineListPresenter(viewController: viewController)
-        let worker = AirlineListWorker()
-        let interactor = AirlineListInteractor(presenter: presenter, worker: worker)
-        let router = AirlineListRouter(viewController: viewController, dataStore: interactor)
-        viewController.configureInterctor(interactor)
-        viewController.configureRouter(router)
+enum AirlineListFactory {
+    static func makeController() -> UIViewController {
+        let coordinator = AirlineListCoordinator()
+        let presenter = AirlineListPresenter(coordinator: coordinator)
+        let service = AirlineListService()
+        let interactor = AirlineListInteractor(presenter: presenter, service: service)
+        let viewController = AirlineListViewController(interactor: interactor)
+        
+        coordinator.viewController = viewController
+        presenter.viewController = viewController
+        
         return viewController
     }
 }

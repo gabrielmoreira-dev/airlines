@@ -1,37 +1,35 @@
 import UIKit
 
-protocol AirlineListDisplayLogic: class {
-    func displayAirlineList(viewModel: AirlineList.GetAirlineList.ViewModel)
+protocol AirlineListDisplaying: AnyObject {
+    func displayAirlineList(_ airlines: [Airline])
 }
 
-class AirlineListViewController: UIViewController {
-    private var interactor: AirlineListBusinessLogic?
-    private var router: (NSObjectProtocol & AirlineListRoutingLogic & AirlineListDataPassing)?
-    private var viewModel: AirlineList.GetAirlineList.ViewModel?
+final class AirlineListViewController: UIViewController {
     private var viewScreen: AirlineListViewScreen?
-    
-    func configureInterctor(_ interactor: AirlineListBusinessLogic) {
-        self.interactor = interactor
-    }
-    
-    func configureRouter(_ router: NSObjectProtocol & AirlineListRoutingLogic & AirlineListDataPassing) {
-        self.router = router
-    }
+    private var airlines: [Airline] = []
+    let interactor: AirlineListInteracting
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        let request = AirlineList.GetAirlineList.Request()
-        interactor?.fetchAirlineList(request: request)
+        interactor.fetchAirlineList()
     }
+    
+    init(interactor: AirlineListInteracting) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 }
 
-extension AirlineListViewController: AirlineListDisplayLogic {
-    func displayAirlineList(viewModel: AirlineList.GetAirlineList.ViewModel) {
+extension AirlineListViewController: AirlineListDisplaying {
+    func displayAirlineList(_ airlines: [Airline]) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            self.viewModel = viewModel
+            self.airlines = airlines
             self.viewScreen = AirlineListViewScreen(delegate: self)
             self.setupViewScreen()
         }
@@ -69,7 +67,7 @@ extension AirlineListViewController {
 
 extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.airlines.count ?? 0
+        airlines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,9 +77,7 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AirlineListTableViewCell.self), for: indexPath) as? AirlineListTableViewCell else {
             return UITableViewCell()
         }
-        guard let item = viewModel?.airlines[indexPath.row] else {
-            return cell
-        }
+        let item = airlines[indexPath.row]
         cell.setViewModel(item)
         return cell
     }

@@ -1,14 +1,28 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
+    private lazy var firstTabViewController: UIViewController = {
+        let viewController = AirlineListFactory.makeController()
+        viewController.tabBarItem = UITabBarItem(
+            title: "Airlines",
+            image: UIImage(systemName: "airplane"),
+            tag: 0
+        )
+        return viewController
+    }()
+    
+    private lazy var secondTabViewController: UIViewController = {
+        let viewController = PassengerListFactory.makeController()
+        viewController.tabBarItem = UITabBarItem(
+            title: "Passengers",
+            image: UIImage(systemName: "person.fill"),
+            tag: 1
+        )
+        return viewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let firstTabViewController = AirlineListFactory.makeController()
-        firstTabViewController.tabBarItem = UITabBarItem(title: "Airlines", image: UIImage(systemName: "airplane"), tag: 0)
-        
-        let secondTabViewController = PassengerListFactory.makeController()
-        secondTabViewController.tabBarItem = UITabBarItem(title: "Passengers", image: UIImage(systemName: "person.fill"), tag: 1)
         
         viewControllers = [
             UINavigationController(rootViewController: firstTabViewController),

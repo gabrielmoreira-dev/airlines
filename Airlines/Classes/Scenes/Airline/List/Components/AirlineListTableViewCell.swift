@@ -1,7 +1,7 @@
 import UIKit
 
 class AirlineListTableViewCell: UITableViewCell {
-    private var viewModel: AirlineList.Airline?
+    private var viewModel: Airline?
     
     lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -48,7 +48,7 @@ class AirlineListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setViewModel(_ viewModel: AirlineList.Airline) {
+    func setViewModel(_ viewModel: Airline) {
         self.viewModel = viewModel
         additionalSetup()
     }

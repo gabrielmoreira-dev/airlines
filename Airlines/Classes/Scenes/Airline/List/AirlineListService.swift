@@ -1,7 +1,13 @@
 import Foundation
 
-class AirlineListWorker {
-    func fetchAirlineList(completion: @escaping (Result<[AirlineList.Airline], ServiceError>) -> Void) {
+protocol AirlineListServicing {
+    func fetchAirlineList(completion: @escaping AirlineListCompletion)
+}
+
+typealias AirlineListCompletion = (Result<[Airline], ServiceError>) -> Void
+
+final class AirlineListService: AirlineListServicing {
+    func fetchAirlineList(completion: @escaping AirlineListCompletion) {
         let baseUrl = "https://api.instantwebtools.net/v1/airlines"
         
         guard let url = URL(string: baseUrl) else {
@@ -23,7 +29,7 @@ class AirlineListWorker {
             
             do {
                 let decoder = JSONDecoder()
-                let decoded = try decoder.decode([AirlineList.Airline].self, from: json)
+                let decoded = try decoder.decode([Airline].self, from: json)
                 completion(.success(decoded))
             }
             catch {

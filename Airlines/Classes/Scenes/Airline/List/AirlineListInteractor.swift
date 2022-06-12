@@ -1,33 +1,27 @@
 import Foundation
 
-protocol AirlineListBusinessLogic {
-    func fetchAirlineList(request: AirlineList.GetAirlineList.Request)
+protocol AirlineListInteracting {
+    func fetchAirlineList()
 }
 
-protocol AirlineListDataStore {
-    //var name: String { get set }
-}
-
-class AirlineListInteractor: AirlineListDataStore {
-    private let presenter: AirlineListPresentationLogic
-    private let worker: AirlineListWorker
-    //var name: String = ""
+final class AirlineListInteractor {
+    private let presenter: AirlineListPresenting
+    private let service: AirlineListServicing
     
-    init(presenter: AirlineListPresentationLogic, worker: AirlineListWorker) {
+    init(presenter: AirlineListPresenting, service: AirlineListServicing) {
         self.presenter = presenter
-        self.worker = worker
+        self.service = service
     }
 }
 
-extension AirlineListInteractor: AirlineListBusinessLogic {
-    func fetchAirlineList(request: AirlineList.GetAirlineList.Request) {
-        worker.fetchAirlineList() { [weak self] result in
+extension AirlineListInteractor: AirlineListInteracting {
+    func fetchAirlineList() {
+        service.fetchAirlineList { [weak self] result in
             guard let self = self else { return }
             
             switch result {
                 case .success(let airlines):
-                    let response = AirlineList.GetAirlineList.Response(airlines: airlines)
-                    self.presenter.presentAirlineList(response: response)
+                    self.presenter.presentAirlineList(airlines)
                 case .failure(let error):
                     print(error)
                     break
