@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		137DB62C263F071600B4EEBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB62B263F071600B4EEBF /* AppDelegate.swift */; };
 		137DB62E263F071600B4EEBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB62D263F071600B4EEBF /* SceneDelegate.swift */; };
-		137DB630263F071600B4EEBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB62F263F071600B4EEBF /* ViewController.swift */; };
 		137DB635263F071700B4EEBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137DB634263F071700B4EEBF /* Assets.xcassets */; };
 		137DB638263F071700B4EEBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137DB636263F071700B4EEBF /* LaunchScreen.storyboard */; };
 		137DB644263F0A4900B4EEBF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB643263F0A4900B4EEBF /* TabBarController.swift */; };
@@ -37,7 +36,6 @@
 		137DB628263F071600B4EEBF /* Airlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137DB62B263F071600B4EEBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137DB62D263F071600B4EEBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		137DB62F263F071600B4EEBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		137DB634263F071700B4EEBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137DB637263F071700B4EEBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137DB639263F071700B4EEBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				137DB641263F0A3100B4EEBF /* Classes */,
 				137DB62B263F071600B4EEBF /* AppDelegate.swift */,
 				137DB62D263F071600B4EEBF /* SceneDelegate.swift */,
-				137DB62F263F071600B4EEBF /* ViewController.swift */,
 				137DB634263F071700B4EEBF /* Assets.xcassets */,
 				137DB636263F071700B4EEBF /* LaunchScreen.storyboard */,
 				137DB639263F071700B4EEBF /* Info.plist */,
@@ -266,7 +263,6 @@
 				137DB65F263F39CD00B4EEBF /* UIImageView+Extension.swift in Sources */,
 				137DB66C263F5AB700B4EEBF /* PassengerListViewController.swift in Sources */,
 				137DB655263F104100B4EEBF /* AirlineListFactory.swift in Sources */,
-				137DB630263F071600B4EEBF /* ViewController.swift in Sources */,
 				137DB668263F5AB700B4EEBF /* PassengerListPresenter.swift in Sources */,
 				137DB652263F0D4500B4EEBF /* AirlineListViewController.swift in Sources */,
 				137DB669263F5AB700B4EEBF /* PassengerListWorker.swift in Sources */,
