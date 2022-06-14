@@ -4,39 +4,24 @@ protocol AirlineListServicing {
     func fetchAirlineList(completion: @escaping AirlineListCompletion)
 }
 
-typealias AirlineListCompletion = (Result<[Airline], ServiceError>) -> Void
+typealias AirlineListCompletion = (Result<[Airline], ApiError>) -> Void
 
-final class AirlineListService: AirlineListServicing {
+final class AirlineListService {
+    private var decoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }
+}
+
+extension AirlineListService: AirlineListServicing {
     func fetchAirlineList(completion: @escaping AirlineListCompletion) {
-        let baseUrl = "https://api.instantwebtools.net/v1/airlines"
-        
-        guard let url = URL(string: baseUrl) else {
-            completion(.failure(.request))
-            return
-        }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(.server))
-                return
-            }
-            
-            guard let json = data else {
-                completion(.failure(.emptyData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decoded = try decoder.decode([Airline].self, from: json)
-                completion(.success(decoded))
-            }
-            catch {
-                completion(.failure(.parser))
-                return
+        let endpoint = AirlineEndpoint.airlineList
+        let api = Api<[Airline]>(endpoint: endpoint)
+        api.execute(decoder: decoder) { result in
+            DispatchQueue.main.async {
+                completion(result)
             }
         }
-        task.resume()
     }
 }
