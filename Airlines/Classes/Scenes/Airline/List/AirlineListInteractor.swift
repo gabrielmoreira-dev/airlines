@@ -21,11 +21,20 @@ extension AirlineListInteractor: AirlineListInteracting {
             
             switch result {
                 case .success(let airlines):
-                    self.presenter.presentAirlineList(airlines)
+                    self.handleSuccess(airlines: airlines)
                 case .failure(let error):
-                    print(error)
-                    break
+                    self.handleError(error)
             }
         }
+    }
+}
+
+private extension AirlineListInteractor {
+    func handleSuccess(airlines: [Airline]) {
+        presenter.presentAirlineList(airlines)
+    }
+    
+    func handleError(_ error: ApiError) {
+        // TODO: Handle error
     }
 }

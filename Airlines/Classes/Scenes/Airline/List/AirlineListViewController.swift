@@ -7,7 +7,7 @@ protocol AirlineListDisplaying: AnyObject {
 final class AirlineListViewController: UIViewController {
     private var viewScreen: AirlineListViewScreen?
     private var airlines: [Airline] = []
-    let interactor: AirlineListInteracting
+    private let interactor: AirlineListInteracting
     
     override func viewDidLoad() {
         super.viewDidLoad()

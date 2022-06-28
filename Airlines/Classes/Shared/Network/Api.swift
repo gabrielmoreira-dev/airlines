@@ -19,6 +19,24 @@ final class Api<T: Decodable> {
             return
         }
         
+        makeRequest(url: url, session: session, decoder: decoder) { result in
+            switch result {
+            case let .success(data):
+                self.decode(data: data, completion)
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+}
+
+private extension Api {
+    func makeRequest(
+        url: URL,
+        session: URLSession,
+        decoder: JSONDecoder,
+        _ completion: @escaping (Result<Data, ApiError>) -> Void
+    ) {
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(.serverError(error)))
@@ -30,16 +48,18 @@ final class Api<T: Decodable> {
                 return
             }
             
-            do {
-                let decoder = JSONDecoder()
-                let decoded = try decoder.decode(T.self, from: json)
-                completion(.success(decoded))
-            }
-            catch {
-                completion(.failure(.decodeError(error)))
-                return
-            }
+            completion(.success(json))
         }
         task.resume()
+    }
+    
+    func decode(data: Data, _ completion: @escaping Completion) {
+        do {
+            let decoder = JSONDecoder()
+            let decoded = try decoder.decode(T.self, from: data)
+            completion(.success(decoded))
+        } catch {
+            completion(.failure(.decodeError(error)))
+        }
     }
 }
