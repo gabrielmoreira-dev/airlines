@@ -1,37 +1,21 @@
 import UIKit
 
-class AirlineListTableViewCell: UITableViewCell {
-    private var viewModel: Airline?
-    
-    lazy var horizontalStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 20
-        return stackView
-    }()
-    
-    lazy var verticalStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
-    }()
-    
-    lazy var logoImageView: UIImageView = {
+final class AirlineListTableViewCell: UITableViewCell {
+    private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.numberOfLines = 0
         return label
     }()
     
-    lazy var subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .darkGray
@@ -39,59 +23,51 @@ class AirlineListTableViewCell: UITableViewCell {
         return label
     }()
     
-    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
+        setupLayout()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
     
-    func setViewModel(_ viewModel: Airline) {
-        self.viewModel = viewModel
-        additionalSetup()
+    func setup(with viewModel: Airline) {
+        titleLabel.text = viewModel.name
+        subtitleLabel.text = viewModel.slogan
+        logoImageView.load(from: viewModel.logo)
     }
 }
 
-extension AirlineListTableViewCell {
-    func setupView() {
+private extension AirlineListTableViewCell {
+    func setupLayout() {
         setupHierarchy()
         setupConstraints()
     }
     
     func setupHierarchy() {
-        addSubview(horizontalStackView)
+        addSubview(logoImageView)
+        addSubview(titleLabel)
+        addSubview(subtitleLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
         ])
         
         NSLayoutConstraint.activate([
-            logoImageView.widthAnchor.constraint(equalToConstant: 100)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16)
         ])
-    }
-    
-    func additionalSetup() {
-        guard
-            let title = self.viewModel?.name,
-            let subtitle = self.viewModel?.slogan,
-            let imageURL = self.viewModel?.logo
-            else { return }
         
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
-        logoImageView.load(from: imageURL)
-        
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(subtitleLabel)
-        
-        horizontalStackView.addArrangedSubview(logoImageView)
-        horizontalStackView.addArrangedSubview(verticalStackView)
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+            subtitleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 24),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
+        ])
     }
 }

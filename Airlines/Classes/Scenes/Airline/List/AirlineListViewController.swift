@@ -5,13 +5,21 @@ protocol AirlineListDisplaying: AnyObject {
 }
 
 final class AirlineListViewController: UIViewController {
-    private var viewScreen: AirlineListViewScreen?
     private var airlines: [Airline] = []
     private let interactor: AirlineListInteracting
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(AirlineListTableViewCell.self, forCellReuseIdentifier: String(describing: AirlineListTableViewCell.self))
+        tableView.rowHeight = 100
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.tableFooterView = UIView()
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupLayout()
         interactor.fetchAirlineList()
     }
     
@@ -26,42 +34,34 @@ final class AirlineListViewController: UIViewController {
 
 extension AirlineListViewController: AirlineListDisplaying {
     func displayAirlineList(_ airlines: [Airline]) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            
-            self.airlines = airlines
-            self.viewScreen = AirlineListViewScreen(delegate: self)
-            self.setupViewScreen()
-        }
+        self.airlines = airlines
+        tableView.reloadData()
     }
 }
 
-extension AirlineListViewController {
-    private func setupView() {
-        title = "Airlines"
-        view.backgroundColor = .white
-    }
-    
-    private func setupViewScreen() {
-        guard let viewScreen = viewScreen else { return }
+private extension AirlineListViewController {
+    func setupLayout() {
         setupHierarchy()
         setupConstraints()
-        viewScreen.tableView.reloadData()
+        setupView()
     }
     
-    private func setupHierarchy() {
-        guard let viewScreen = viewScreen else { return }
-        view.addSubview(viewScreen)
+    func setupHierarchy() {
+        view.addSubview(tableView)
     }
     
-    private func setupConstraints() {
-        guard let viewScreen = viewScreen else { return }
+    func setupConstraints() {
         NSLayoutConstraint.activate([
-            viewScreen.topAnchor.constraint(equalTo: view.topAnchor),
-            viewScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            viewScreen.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            viewScreen.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+    }
+    
+    func setupView() {
+        title = "Airlines"
+        view.backgroundColor = .white
     }
 }
 
@@ -71,14 +71,11 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let tableView = viewScreen?.tableView else {
-            return UITableViewCell()
-        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AirlineListTableViewCell.self), for: indexPath) as? AirlineListTableViewCell else {
             return UITableViewCell()
         }
         let item = airlines[indexPath.row]
-        cell.setViewModel(item)
+        cell.setup(with: item)
         return cell
     }
 }

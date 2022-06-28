@@ -17,7 +17,6 @@
 		137DB652263F0D4500B4EEBF /* AirlineListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB64C263F0D4500B4EEBF /* AirlineListViewController.swift */; };
 		137DB653263F0D4500B4EEBF /* AirlineListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB64D263F0D4500B4EEBF /* AirlineListInteractor.swift */; };
 		137DB655263F104100B4EEBF /* AirlineListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB654263F104100B4EEBF /* AirlineListFactory.swift */; };
-		137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */; };
 		137DB65A263F133A00B4EEBF /* AirlineListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */; };
 		137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65B263F2C9000B4EEBF /* ServiceError.swift */; };
 		137DB65F263F39CD00B4EEBF /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */; };
@@ -49,7 +48,6 @@
 		137DB64C263F0D4500B4EEBF /* AirlineListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListViewController.swift; sourceTree = "<group>"; };
 		137DB64D263F0D4500B4EEBF /* AirlineListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListInteractor.swift; sourceTree = "<group>"; };
 		137DB654263F104100B4EEBF /* AirlineListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListFactory.swift; sourceTree = "<group>"; };
-		137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListViewScreen.swift; sourceTree = "<group>"; };
 		137DB659263F133A00B4EEBF /* AirlineListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListTableViewCell.swift; sourceTree = "<group>"; };
 		137DB65B263F2C9000B4EEBF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				137DB64C263F0D4500B4EEBF /* AirlineListViewController.swift */,
 				137DB64D263F0D4500B4EEBF /* AirlineListInteractor.swift */,
 				137DB654263F104100B4EEBF /* AirlineListFactory.swift */,
-				137DB656263F112400B4EEBF /* AirlineListViewScreen.swift */,
 				C02806122856A6A900D012A3 /* AirlineListCoordinator.swift */,
 			);
 			path = List;
@@ -316,7 +313,6 @@
 				137DB653263F0D4500B4EEBF /* AirlineListInteractor.swift in Sources */,
 				C0A7AE34285829D200D42292 /* AirlineEndpoint.swift in Sources */,
 				C0A7AE292858204D00D42292 /* Api.swift in Sources */,
-				137DB657263F112400B4EEBF /* AirlineListViewScreen.swift in Sources */,
 				137DB65C263F2C9000B4EEBF /* ServiceError.swift in Sources */,
 				137DB62E263F071600B4EEBF /* SceneDelegate.swift in Sources */,
 				C028060E2856A39800D012A3 /* Airline.swift in Sources */,
