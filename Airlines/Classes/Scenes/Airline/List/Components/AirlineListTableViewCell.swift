@@ -34,7 +34,7 @@ final class AirlineListTableViewCell: UITableViewCell {
     func setup(with viewModel: Airline) {
         titleLabel.text = viewModel.name
         subtitleLabel.text = viewModel.slogan
-        logoImageView.load(from: viewModel.logo)
+        logoImageView.load(from: viewModel.logoUrl)
     }
 }
 

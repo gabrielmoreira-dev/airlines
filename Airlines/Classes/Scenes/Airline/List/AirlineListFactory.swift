@@ -1,7 +1,7 @@
 import UIKit
 
 enum AirlineListFactory {
-    static func makeController() -> UIViewController {
+    static func make() -> UIViewController {
         let coordinator = AirlineListCoordinator()
         let presenter = AirlineListPresenter(coordinator: coordinator)
         let service = AirlineListService()

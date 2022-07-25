@@ -29,11 +29,24 @@
 		137DB671263F5E4700B4EEBF /* PassengerListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB670263F5E4700B4EEBF /* PassengerListFactory.swift */; };
 		C028060E2856A39800D012A3 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028060D2856A39800D012A3 /* Airline.swift */; };
 		C02806132856A6A900D012A3 /* AirlineListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02806122856A6A900D012A3 /* AirlineListCoordinator.swift */; };
+		C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7543288E287A0014DF13 /* AirlineListInteractorTest.swift */; };
+		C09F754B288E2E4C0014DF13 /* Airline+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F754A288E2E4C0014DF13 /* Airline+Fixtures.swift */; };
+		C09F7551288E337A0014DF13 /* AirlineListPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7550288E337A0014DF13 /* AirlineListPresenterTest.swift */; };
 		C0A7AE292858204D00D42292 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7AE282858204D00D42292 /* Api.swift */; };
 		C0A7AE2D285820D300D42292 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7AE2C285820D300D42292 /* ApiEndpoint.swift */; };
 		C0A7AE302858251100D42292 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7AE2F2858251100D42292 /* ApiError.swift */; };
 		C0A7AE34285829D200D42292 /* AirlineEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7AE33285829D200D42292 /* AirlineEndpoint.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C09F7534288E276F0014DF13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 137DB620263F071600B4EEBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 137DB627263F071600B4EEBF;
+			remoteInfo = Airlines;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		137DB628263F071600B4EEBF /* Airlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlines.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +73,11 @@
 		137DB670263F5E4700B4EEBF /* PassengerListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListFactory.swift; sourceTree = "<group>"; };
 		C028060D2856A39800D012A3 /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C02806122856A6A900D012A3 /* AirlineListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListCoordinator.swift; sourceTree = "<group>"; };
+		C09F752F288E276F0014DF13 /* AirlinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09F7533288E276F0014DF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09F7543288E287A0014DF13 /* AirlineListInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListInteractorTest.swift; sourceTree = "<group>"; };
+		C09F754A288E2E4C0014DF13 /* Airline+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airline+Fixtures.swift"; sourceTree = "<group>"; };
+		C09F7550288E337A0014DF13 /* AirlineListPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListPresenterTest.swift; sourceTree = "<group>"; };
 		C0A7AE282858204D00D42292 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		C0A7AE2C285820D300D42292 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		C0A7AE2F2858251100D42292 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -74,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C09F752C288E276F0014DF13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				137DB62A263F071600B4EEBF /* Airlines */,
+				C09F7530288E276F0014DF13 /* AirlinesTests */,
 				137DB629263F071600B4EEBF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				137DB628263F071600B4EEBF /* Airlines.app */,
+				C09F752F288E276F0014DF13 /* AirlinesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +232,57 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C09F7530288E276F0014DF13 /* AirlinesTests */ = {
+			isa = PBXGroup;
+			children = (
+				C09F753B288E27990014DF13 /* Classes */,
+				C09F7533288E276F0014DF13 /* Info.plist */,
+			);
+			path = AirlinesTests;
+			sourceTree = "<group>";
+		};
+		C09F753B288E27990014DF13 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C09F753C288E27A80014DF13 /* Scenes */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C09F753C288E27A80014DF13 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C09F753D288E27B60014DF13 /* Airline */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C09F753D288E27B60014DF13 /* Airline */ = {
+			isa = PBXGroup;
+			children = (
+				C09F753E288E27C30014DF13 /* List */,
+			);
+			path = Airline;
+			sourceTree = "<group>";
+		};
+		C09F753E288E27C30014DF13 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C09F7549288E2E300014DF13 /* Fixture */,
+				C09F7543288E287A0014DF13 /* AirlineListInteractorTest.swift */,
+				C09F7550288E337A0014DF13 /* AirlineListPresenterTest.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		C09F7549288E2E300014DF13 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				C09F754A288E2E4C0014DF13 /* Airline+Fixtures.swift */,
+			);
+			path = Fixture;
+			sourceTree = "<group>";
+		};
 		C0A7AE272858203500D42292 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,18 +321,41 @@
 			productReference = 137DB628263F071600B4EEBF /* Airlines.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C09F752E288E276F0014DF13 /* AirlinesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C09F7538288E276F0014DF13 /* Build configuration list for PBXNativeTarget "AirlinesTests" */;
+			buildPhases = (
+				C09F752B288E276F0014DF13 /* Sources */,
+				C09F752C288E276F0014DF13 /* Frameworks */,
+				C09F752D288E276F0014DF13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C09F7535288E276F0014DF13 /* PBXTargetDependency */,
+			);
+			name = AirlinesTests;
+			productName = AirlinesTests;
+			productReference = C09F752F288E276F0014DF13 /* AirlinesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		137DB620263F071600B4EEBF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Gabriel Alves Moreira";
 				TargetAttributes = {
 					137DB627263F071600B4EEBF = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					C09F752E288E276F0014DF13 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+						TestTargetID = 137DB627263F071600B4EEBF;
 					};
 				};
 			};
@@ -272,6 +373,7 @@
 			projectRoot = "";
 			targets = (
 				137DB627263F071600B4EEBF /* Airlines */,
+				C09F752E288E276F0014DF13 /* AirlinesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -283,6 +385,13 @@
 			files = (
 				137DB638263F071700B4EEBF /* LaunchScreen.storyboard in Resources */,
 				137DB635263F071700B4EEBF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C09F752D288E276F0014DF13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +429,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C09F752B288E276F0014DF13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09F754B288E2E4C0014DF13 /* Airline+Fixtures.swift in Sources */,
+				C09F7551288E337A0014DF13 /* AirlineListPresenterTest.swift in Sources */,
+				C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C09F7535288E276F0014DF13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 137DB627263F071600B4EEBF /* Airlines */;
+			targetProxy = C09F7534288E276F0014DF13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		137DB636263F071700B4EEBF /* LaunchScreen.storyboard */ = {
@@ -482,6 +609,51 @@
 			};
 			name = Release;
 		};
+		C09F7536288E276F0014DF13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AirlinesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.AirlinesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlines.app/Airlines";
+			};
+			name = Debug;
+		};
+		C09F7537288E276F0014DF13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AirlinesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.AirlinesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlines.app/Airlines";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -499,6 +671,15 @@
 			buildConfigurations = (
 				137DB63D263F071700B4EEBF /* Debug */,
 				137DB63E263F071700B4EEBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C09F7538288E276F0014DF13 /* Build configuration list for PBXNativeTarget "AirlinesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09F7536288E276F0014DF13 /* Debug */,
+				C09F7537288E276F0014DF13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

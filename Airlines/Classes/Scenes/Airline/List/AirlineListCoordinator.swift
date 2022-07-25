@@ -1,9 +1,10 @@
 import UIKit
 
-enum AirlineListAction: Equatable {}
+enum AirlineListAction: Equatable {
+    case exit
+}
 
 protocol AirlineListCoordinating {
-    var viewController: UIViewController? { get set }
     func perform(action: AirlineListAction)
 }
 

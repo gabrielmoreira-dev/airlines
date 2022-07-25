@@ -1,5 +1,5 @@
-struct Airline: Decodable {
+struct Airline: Decodable, Equatable {
     let name: String
-    let logo: String
+    let logoUrl: String
     let slogan: String
 }

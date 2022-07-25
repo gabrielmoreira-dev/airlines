@@ -2,7 +2,7 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     private lazy var firstTabViewController: UIViewController = {
-        let viewController = AirlineListFactory.makeController()
+        let viewController = AirlineListFactory.make()
         viewController.tabBarItem = UITabBarItem(
             title: "Airlines",
             image: UIImage(systemName: "airplane"),
