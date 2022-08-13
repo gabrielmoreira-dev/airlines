@@ -16,6 +16,7 @@ final class AirlineListInteractor {
 
 extension AirlineListInteractor: AirlineListInteracting {
     func fetchAirlineList() {
+        presenter.presentLoadingState()
         service.fetchAirlineList { [weak self] result in
             guard let self = self else { return }
             
@@ -25,6 +26,7 @@ extension AirlineListInteractor: AirlineListInteracting {
                 case .failure(let error):
                     self.handleError(error)
             }
+            self.presenter.presentEndLoadingState()
         }
     }
 }

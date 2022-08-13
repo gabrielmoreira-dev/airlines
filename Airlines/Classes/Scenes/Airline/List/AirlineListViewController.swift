@@ -2,20 +2,31 @@ import UIKit
 
 protocol AirlineListDisplaying: AnyObject {
     func displayAirlineList(_ airlines: [Airline])
+    func displayLoadingState()
+    func displayEndLoadingState()
+}
+
+private extension AirlineListViewController.Layout {
+    enum Size {
+        static let tableRowHeight: CGFloat = 100
+    }
 }
 
 final class AirlineListViewController: UIViewController {
+    fileprivate enum Layout { }
     private var airlines: [Airline] = []
     private let interactor: AirlineListInteracting
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(AirlineListTableViewCell.self, forCellReuseIdentifier: String(describing: AirlineListTableViewCell.self))
-        tableView.rowHeight = 100
+        tableView.rowHeight = Layout.Size.tableRowHeight
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
         return tableView
     }()
+    
+    private lazy var loadingView = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +48,14 @@ extension AirlineListViewController: AirlineListDisplaying {
         self.airlines = airlines
         tableView.reloadData()
     }
+    
+    func displayLoadingState() {
+        loadingView.startLoadingState()
+    }
+    
+    func displayEndLoadingState() {
+        loadingView.endLoadingState()
+    }
 }
 
 private extension AirlineListViewController {
@@ -48,6 +67,7 @@ private extension AirlineListViewController {
     
     func setupHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(loadingView)
     }
     
     func setupConstraints() {
