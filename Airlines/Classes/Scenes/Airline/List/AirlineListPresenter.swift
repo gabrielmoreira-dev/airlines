@@ -1,7 +1,7 @@
 protocol AirlineListPresenting {
     func presentAirlineList(_ airlines: [Airline])
     func presentLoadingState()
-    func presentEndLoadingState()
+    func presentErrorState()
     func didNextStep(action: AirlineListAction)
 }
 
@@ -23,8 +23,8 @@ extension AirlineListPresenter: AirlineListPresenting {
         viewController?.displayLoadingState()
     }
     
-    func presentEndLoadingState() {
-        viewController?.displayEndLoadingState()
+    func presentErrorState() {
+        viewController?.displayErrorState()
     }
     
     func didNextStep(action: AirlineListAction) {

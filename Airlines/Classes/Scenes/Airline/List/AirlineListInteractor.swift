@@ -26,7 +26,6 @@ extension AirlineListInteractor: AirlineListInteracting {
                 case .failure(let error):
                     self.handleError(error)
             }
-            self.presenter.presentEndLoadingState()
         }
     }
 }
@@ -37,6 +36,6 @@ private extension AirlineListInteractor {
     }
     
     func handleError(_ error: ApiError) {
-        // TODO: Handle error
+        presenter.presentErrorState()
     }
 }

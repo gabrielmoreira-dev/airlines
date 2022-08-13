@@ -3,7 +3,7 @@ import UIKit
 protocol AirlineListDisplaying: AnyObject {
     func displayAirlineList(_ airlines: [Airline])
     func displayLoadingState()
-    func displayEndLoadingState()
+    func displayErrorState()
 }
 
 private extension AirlineListViewController.Layout {
@@ -26,7 +26,18 @@ final class AirlineListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var loadingView = LoadingView()
+    private lazy var loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var errorView: ErrorView = {
+        let view = ErrorView(title: "Error", description: "Please try again later", tryAgain: {})
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +56,7 @@ final class AirlineListViewController: UIViewController {
 
 extension AirlineListViewController: AirlineListDisplaying {
     func displayAirlineList(_ airlines: [Airline]) {
+        loadingView.endLoadingState()
         self.airlines = airlines
         tableView.reloadData()
     }
@@ -53,8 +65,9 @@ extension AirlineListViewController: AirlineListDisplaying {
         loadingView.startLoadingState()
     }
     
-    func displayEndLoadingState() {
+    func displayErrorState() {
         loadingView.endLoadingState()
+        errorView.isHidden = false
     }
 }
 
@@ -68,6 +81,7 @@ private extension AirlineListViewController {
     func setupHierarchy() {
         view.addSubview(tableView)
         view.addSubview(loadingView)
+        view.addSubview(errorView)
     }
     
     func setupConstraints() {
@@ -76,6 +90,20 @@ private extension AirlineListViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     

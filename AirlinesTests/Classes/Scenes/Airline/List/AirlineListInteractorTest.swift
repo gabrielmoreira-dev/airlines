@@ -12,6 +12,8 @@ private final class AirlineListServiceStub: AirlineListServicing {
 private final class AirlineListPresenterSpy: AirlineListPresenting {
     enum Message: Equatable {
         case presentAirlineList(airlines: [Airline])
+        case presentLoadingState
+        case presentErrorState
         case didNextStep(action: AirlineListAction)
     }
     
@@ -19,6 +21,14 @@ private final class AirlineListPresenterSpy: AirlineListPresenting {
     
     func presentAirlineList(_ airlines: [Airline]) {
         messages.append(.presentAirlineList(airlines: airlines))
+    }
+    
+    func presentLoadingState() {
+        messages.append(.presentLoadingState)
+    }
+    
+    func presentErrorState() {
+        messages.append(.presentErrorState)
     }
     
     func didNextStep(action: AirlineListAction) {
@@ -40,7 +50,18 @@ extension AirlineListInteractorTest {
         
         sut.fetchAirlineList()
         
-        XCTAssertEqual(presenterSpy.messages, [.presentAirlineList(airlines: airlineList)])
+        XCTAssertEqual(presenterSpy.messages, [
+            .presentLoadingState,
+            .presentAirlineList(airlines: airlineList)
+        ])
+    }
+    
+    func testGetAirlineList_WhenFailed_ShouldCallPresentErrorState() {
+        serviceStub.fetchAirlineListResult = .failure(.emptyData)
+        
+        sut.fetchAirlineList()
+        
+        XCTAssertEqual(presenterSpy.messages, [.presentLoadingState, .presentErrorState])
     }
 }
 

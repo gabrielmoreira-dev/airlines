@@ -16,12 +16,22 @@ private final class AirlineListCoordinatorSpy: AirlineListCoordinating {
 private final class AirlineListViewControllerSpy: AirlineListDisplaying {
     enum Message: Equatable {
         case displayAirlineList([Airline])
+        case displayLoadingState
+        case displayError
     }
     
     private(set) var messages: [Message] = []
     
     func displayAirlineList(_ airlines: [Airline]) {
         messages.append(.displayAirlineList(airlines))
+    }
+    
+    func displayLoadingState() {
+        messages.append(.displayLoadingState)
+    }
+    
+    func displayErrorState() {
+        messages.append(.displayError)
     }
 }
 
@@ -42,6 +52,18 @@ extension AirlineListPresenterTest {
         sut.presentAirlineList(airlines)
         
         XCTAssertEqual(viewControllerSpy.messages, [.displayAirlineList(airlines)])
+    }
+    
+    func testPresentLoadingState_WhenCalled_ShouldCallDisplayLoadingState() {
+        sut.presentLoadingState()
+        
+        XCTAssertEqual(viewControllerSpy.messages, [.displayLoadingState])
+    }
+    
+    func testPresentErrorState_WhenCalled_ShouldCallDisplayErrorState() {
+        sut.presentErrorState()
+        
+        XCTAssertEqual(viewControllerSpy.messages, [.displayError])
     }
     
     func testDidNextStep_WhenCalled_ShouldCallCoordinator() {

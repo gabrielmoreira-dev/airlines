@@ -7,6 +7,14 @@ final class LoadingView: UIView {
         return indicator
     }()
     
+    init() {
+        super.init(frame: .zero)
+        setupLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+    
     func startLoadingState() {
         spinner.startAnimating()
     }
