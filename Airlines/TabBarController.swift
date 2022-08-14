@@ -1,5 +1,12 @@
 import UIKit
 
+private extension TabBarController {
+    enum Item: Int {
+        case airlines
+        case passengers
+    }
+}
+
 final class TabBarController: UITabBarController {
     private typealias Localizable = Strings.Navigation
     
@@ -8,7 +15,7 @@ final class TabBarController: UITabBarController {
         navigationController.tabBarItem = UITabBarItem(
             title: Localizable.Airlines.title,
             image: UIImage(systemName: "airplane"),
-            tag: 0
+            tag: Item.airlines.rawValue
         )
         
         let coordinator = AirlineFlowCoordinator(navigationController: navigationController)
@@ -22,7 +29,7 @@ final class TabBarController: UITabBarController {
         navigationController.tabBarItem = UITabBarItem(
             title: Localizable.Passengers.title,
             image: UIImage(systemName: "person.fill"),
-            tag: 1
+            tag: Item.passengers.rawValue
         )
         
         let coordinator = PassengerFlowCoordinator(navigationController: navigationController)

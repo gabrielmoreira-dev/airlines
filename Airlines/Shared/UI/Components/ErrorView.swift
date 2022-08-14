@@ -1,7 +1,9 @@
 import UIKit
 
 final class ErrorView: UIView {
-    private let tryAgain: () -> Void
+    private typealias Localizable = Strings.Error
+    
+    private let retry: () -> Void
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -19,21 +21,21 @@ final class ErrorView: UIView {
         return label
     }()
     
-    private lazy var tryAgainButton: UIButton = {
+    private lazy var retryButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Try Again", for: .normal)
+        button.setTitle(Localizable.RetryButton.title, for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    init(title: String, description: String, tryAgain: @escaping () -> Void) {
-        self.tryAgain = tryAgain
+    init(title: String, description: String, retry: @escaping () -> Void) {
+        self.retry = retry
         super.init(frame: .zero)
         titleLabel.text = title
         descriptionLabel.text = description
-        tryAgainButton.addTarget(self, action: #selector(self.onTryAgainTapped), for: .touchUpInside)
+        retryButton.addTarget(self, action: #selector(self.onRetryButtonTapped), for: .touchUpInside)
         setupLayout()
     }
     
@@ -51,27 +53,27 @@ private extension ErrorView {
     func setupHierarchy() {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
-        addSubview(tryAgainButton)
+        addSubview(retryButton)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 196),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: Space.base10),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Space.base03),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Space.base03)
         ])
         
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Space.base06),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Space.base03),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Space.base03)
         ])
         
         NSLayoutConstraint.activate([
-            tryAgainButton.topAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.bottomAnchor, constant: 32),
-            tryAgainButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            tryAgainButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            tryAgainButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -72)
+            retryButton.topAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.bottomAnchor, constant: Space.base05),
+            retryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Space.base03),
+            retryButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Space.base03),
+            retryButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Space.base07)
         ])
     }
     
@@ -81,7 +83,7 @@ private extension ErrorView {
 }
 
 @objc private extension ErrorView {
-    func onTryAgainTapped() {
-        tryAgain()
+    func onRetryButtonTapped() {
+        retry()
     }
 }

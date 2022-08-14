@@ -19,9 +19,7 @@ extension AirlineListService: AirlineListServicing {
         let endpoint = AirlineEndpoint.airlineList
         let api = Api<[Airline]>(endpoint: endpoint)
         api.execute(decoder: decoder) { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
+            DispatchQueue.main.async { completion(result) }
         }
     }
 }

@@ -8,18 +8,23 @@ protocol AirlineListDisplaying: AnyObject {
 
 private extension AirlineListViewController.Layout {
     enum Size {
-        static let tableRowHeight: CGFloat = 100
+        static let tableRowHeight: CGFloat = Space.base09
     }
 }
 
 final class AirlineListViewController: UIViewController {
     fileprivate enum Layout { }
+    private typealias Localizable = Strings.Airline.List
+    
     private var airlines: [Airline] = []
     private let interactor: AirlineListInteracting
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(AirlineListTableViewCell.self, forCellReuseIdentifier: String(describing: AirlineListTableViewCell.self))
+        tableView.register(
+            AirlineListTableViewCell.self,
+            forCellReuseIdentifier: String(describing: AirlineListTableViewCell.self)
+        )
         tableView.rowHeight = Layout.Size.tableRowHeight
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
@@ -33,7 +38,7 @@ final class AirlineListViewController: UIViewController {
     }()
     
     private lazy var errorView: ErrorView = {
-        let view = ErrorView(title: "Error", description: "Please try again later", tryAgain: {})
+        let view = ErrorView(title: "Error", description: "Please try again later", retry: {})
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         return view
@@ -108,7 +113,7 @@ private extension AirlineListViewController {
     }
     
     func setupView() {
-        title = "Airlines"
+        title = Localizable.title
         view.backgroundColor = .white
     }
 }
@@ -119,9 +124,11 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AirlineListTableViewCell.self), for: indexPath) as? AirlineListTableViewCell else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: AirlineListTableViewCell.self),
+            for: indexPath
+        ) as? AirlineListTableViewCell else { return UITableViewCell() }
+        
         let item = airlines[indexPath.row]
         cell.setup(with: item)
         return cell
