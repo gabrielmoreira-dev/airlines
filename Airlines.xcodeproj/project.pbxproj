@@ -131,7 +131,10 @@
 		137DB62A263F071600B4EEBF /* Airlines */ = {
 			isa = PBXGroup;
 			children = (
-				137DB641263F0A3100B4EEBF /* Classes */,
+				C0E9FAE6288E514300D8FC8A /* Flow */,
+				137DB645263F0D1200B4EEBF /* Scenes */,
+				C0A7AE32285829B400D42292 /* Endpoint */,
+				137DB642263F0A3800B4EEBF /* Shared */,
 				137DB62B263F071600B4EEBF /* AppDelegate.swift */,
 				137DB62D263F071600B4EEBF /* SceneDelegate.swift */,
 				137DB634263F071700B4EEBF /* Assets.xcassets */,
@@ -139,17 +142,6 @@
 				137DB639263F071700B4EEBF /* Info.plist */,
 			);
 			path = Airlines;
-			sourceTree = "<group>";
-		};
-		137DB641263F0A3100B4EEBF /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C0E9FAE6288E514300D8FC8A /* Flow */,
-				C0A7AE32285829B400D42292 /* Endpoint */,
-				137DB645263F0D1200B4EEBF /* Scenes */,
-				137DB642263F0A3800B4EEBF /* Shared */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		137DB642263F0A3800B4EEBF /* Shared */ = {
@@ -245,18 +237,10 @@
 		C09F7530288E276F0014DF13 /* AirlinesTests */ = {
 			isa = PBXGroup;
 			children = (
-				C09F753B288E27990014DF13 /* Classes */,
+				C09F753C288E27A80014DF13 /* Scenes */,
 				C09F7533288E276F0014DF13 /* Info.plist */,
 			);
 			path = AirlinesTests;
-			sourceTree = "<group>";
-		};
-		C09F753B288E27990014DF13 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C09F753C288E27A80014DF13 /* Scenes */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		C09F753C288E27A80014DF13 /* Scenes */ = {
