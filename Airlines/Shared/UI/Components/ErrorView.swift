@@ -3,7 +3,7 @@ import UIKit
 final class ErrorView: UIView {
     private typealias Localizable = Strings.Error
     
-    private let retry: () -> Void
+    var retryAction: (() -> Void)? = nil
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -32,8 +32,7 @@ final class ErrorView: UIView {
         return button
     }()
     
-    init(retry: @escaping () -> Void) {
-        self.retry = retry
+    init() {
         super.init(frame: .zero)
         retryButton.addTarget(self, action: #selector(self.onRetryButtonTapped), for: .touchUpInside)
         setupLayout()
@@ -89,6 +88,6 @@ private extension ErrorView {
 
 @objc private extension ErrorView {
     func onRetryButtonTapped() {
-        retry()
+        retryAction?()
     }
 }

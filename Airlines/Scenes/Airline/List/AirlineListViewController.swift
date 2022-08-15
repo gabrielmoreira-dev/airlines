@@ -28,6 +28,8 @@ final class AirlineListViewController: UIViewController {
         tableView.rowHeight = Layout.Size.tableRowHeight
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -38,7 +40,8 @@ final class AirlineListViewController: UIViewController {
     }()
     
     private lazy var errorView: ErrorView = {
-        let view = ErrorView(retry: {})
+        let view = ErrorView()
+        view.retryAction = { [weak self] in self?.interactor.fetchAirlineList() }
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         return view
@@ -61,12 +64,15 @@ final class AirlineListViewController: UIViewController {
 
 extension AirlineListViewController: AirlineListDisplaying {
     func displayAirlineList(_ airlines: [Airline]) {
-        loadingView.endLoadingState()
         self.airlines = airlines
         tableView.reloadData()
+        loadingView.endLoadingState()
+        loadingView.isHidden = true
     }
     
     func displayLoadingState() {
+        errorView.isHidden = true
+        loadingView.isHidden = false
         loadingView.startLoadingState()
     }
     

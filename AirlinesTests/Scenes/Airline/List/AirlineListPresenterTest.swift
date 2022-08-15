@@ -17,7 +17,7 @@ private final class AirlineListViewControllerSpy: AirlineListDisplaying {
     enum Message: Equatable {
         case displayAirlineList([Airline])
         case displayLoadingState
-        case displayError
+        case displayErrorState(title: String, description: String)
     }
     
     private(set) var messages: [Message] = []
@@ -30,8 +30,8 @@ private final class AirlineListViewControllerSpy: AirlineListDisplaying {
         messages.append(.displayLoadingState)
     }
     
-    func displayErrorState() {
-        messages.append(.displayError)
+    func displayErrorState(_ model: ErrorViewModeling) {
+        messages.append(.displayErrorState(title: model.title, description: model.description))
     }
 }
 
@@ -61,9 +61,14 @@ extension AirlineListPresenterTest {
     }
     
     func testPresentErrorState_WhenCalled_ShouldCallDisplayErrorState() {
-        sut.presentErrorState()
+        let error: ApiError = .serverError
         
-        XCTAssertEqual(viewControllerSpy.messages, [.displayError])
+        sut.presentErrorState(error: error)
+        
+        XCTAssertEqual(viewControllerSpy.messages, [.displayErrorState(
+            title: Strings.Error.Generic.title,
+            description: Strings.Error.Generic.description
+        )])
     }
     
     func testDidNextStep_WhenCalled_ShouldCallCoordinator() {

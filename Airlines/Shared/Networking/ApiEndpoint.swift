@@ -17,7 +17,7 @@ protocol ApiEndpoint {
 
 extension ApiEndpoint {
     var baseUrl: URL {
-        let urlString = "http://localhost:3000"
+        let urlString = "http://localhost:8080"
         guard let url = URL(string: urlString) else {
             fatalError("Undefined base URL")
         }
