@@ -1,0 +1,12 @@
+input_dir: Airlines/
+output_dir: Airlines/Generated/
+
+strings:
+  inputs:
+    - Localizable/en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      params:
+        publicAccess: true
+        enumName: "Strings"
+      output: Strings.generated.swift

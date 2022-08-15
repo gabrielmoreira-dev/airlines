@@ -1,18 +1,7 @@
-//
-//  AppDelegate.swift
-//  Airlines
-//
-//  Created by Gabriel Alves Moreira on 02/05/21.
-//  Copyright © 2021 Gabriel Alves Moreira. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
