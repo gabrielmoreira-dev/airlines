@@ -10,14 +10,14 @@ final class AirlineListTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = Font.large
         label.numberOfLines = 0
         return label
     }()
     
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = Font.xSmall
         label.textColor = .darkGray
         label.numberOfLines = 0
         return label
@@ -52,22 +52,22 @@ private extension AirlineListTableViewCell {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
+            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: Space.base04),
+            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Space.base03),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Space.base04)
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 24),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: Space.base04),
+            titleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: Space.base04),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Space.base03)
         ])
         
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            subtitleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 24),
-            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
-            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Space.base04),
+            subtitleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: Space.base04),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Space.base03),
+            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Space.base04)
         ])
     }
 }

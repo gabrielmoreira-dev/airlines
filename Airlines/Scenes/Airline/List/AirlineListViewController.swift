@@ -3,7 +3,7 @@ import UIKit
 protocol AirlineListDisplaying: AnyObject {
     func displayAirlineList(_ airlines: [Airline])
     func displayLoadingState()
-    func displayErrorState()
+    func displayErrorState(_ model: ErrorViewModeling)
 }
 
 private extension AirlineListViewController.Layout {
@@ -38,7 +38,7 @@ final class AirlineListViewController: UIViewController {
     }()
     
     private lazy var errorView: ErrorView = {
-        let view = ErrorView(title: "Error", description: "Please try again later", retry: {})
+        let view = ErrorView(retry: {})
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         return view
@@ -70,9 +70,10 @@ extension AirlineListViewController: AirlineListDisplaying {
         loadingView.startLoadingState()
     }
     
-    func displayErrorState() {
-        loadingView.endLoadingState()
+    func displayErrorState(_ model: ErrorViewModeling) {
+        errorView.setup(with: model)
         errorView.isHidden = false
+        loadingView.endLoadingState()
     }
 }
 

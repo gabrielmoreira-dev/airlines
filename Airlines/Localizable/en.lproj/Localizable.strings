@@ -4,7 +4,7 @@
 
 // Error
 "Error.Generic.title" = "Something's not right";
-"Error.Generic.description" = "Sorry, we are having some technical issues =(. Please try to refresh the page.";
+"Error.Generic.description" = "Sorry, we're having some technical issues =(. Please try refreshing the page.";
 "Error.Network.title" = "No internet connection";
 "Error.Network.description" = "It looks like your device is not connected to the network. Please verify your connection and try again";
 "Error.RetryButton.title" = "Retry";

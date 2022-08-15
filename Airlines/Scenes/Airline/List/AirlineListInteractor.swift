@@ -36,6 +36,6 @@ private extension AirlineListInteractor {
     }
     
     func handleError(_ error: ApiError) {
-        presenter.presentErrorState()
+        presenter.presentErrorState(error: error)
     }
 }

@@ -8,7 +8,8 @@ final class ErrorView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 24.0)
+        label.font = Font.xLarge
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -16,7 +17,8 @@ final class ErrorView: UIView {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.font = Font.medium
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,17 +32,20 @@ final class ErrorView: UIView {
         return button
     }()
     
-    init(title: String, description: String, retry: @escaping () -> Void) {
+    init(retry: @escaping () -> Void) {
         self.retry = retry
         super.init(frame: .zero)
-        titleLabel.text = title
-        descriptionLabel.text = description
         retryButton.addTarget(self, action: #selector(self.onRetryButtonTapped), for: .touchUpInside)
         setupLayout()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
+    
+    func setup(with model: ErrorViewModeling) {
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
+    }
 }
 
 private extension ErrorView {

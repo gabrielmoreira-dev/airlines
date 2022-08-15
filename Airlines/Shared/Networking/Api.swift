@@ -38,8 +38,8 @@ private extension Api {
         _ completion: @escaping (Result<Data, ApiError>) -> Void
     ) {
         let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(.serverError(error)))
+            if let _ = error {
+                completion(.failure(.serverError))
                 return
             }
             
@@ -59,7 +59,7 @@ private extension Api {
             let decoded = try decoder.decode(T.self, from: data)
             completion(.success(decoded))
         } catch {
-            completion(.failure(.decodeError(error)))
+            completion(.failure(.decodeError))
         }
     }
 }
