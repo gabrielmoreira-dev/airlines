@@ -33,20 +33,6 @@ final class AirlineListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var loadingView: LoadingView = {
-        let view = LoadingView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var errorView: ErrorView = {
-        let view = ErrorView()
-        view.retryAction = { [weak self] in self?.interactor.fetchAirlineList() }
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isHidden = true
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -66,20 +52,15 @@ extension AirlineListViewController: AirlineListDisplaying {
     func displayAirlineList(_ airlines: [Airline]) {
         self.airlines = airlines
         tableView.reloadData()
-        loadingView.endLoadingState()
-        loadingView.isHidden = true
+        endLoadingState()
     }
     
     func displayLoadingState() {
-        errorView.isHidden = true
-        loadingView.isHidden = false
-        loadingView.startLoadingState()
+        startLoadingState()
     }
     
     func displayErrorState(_ model: ErrorViewModeling) {
-        errorView.setup(with: model)
-        errorView.isHidden = false
-        loadingView.endLoadingState()
+        endLoadingState(model)
     }
 }
 
@@ -92,8 +73,6 @@ private extension AirlineListViewController {
     
     func setupHierarchy() {
         view.addSubview(tableView)
-        view.addSubview(loadingView)
-        view.addSubview(errorView)
     }
     
     func setupConstraints() {
@@ -103,25 +82,12 @@ private extension AirlineListViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
-        
-        NSLayoutConstraint.activate([
-            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
-            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-        
-        NSLayoutConstraint.activate([
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
     }
     
     func setupView() {
         title = Localizable.title
         view.backgroundColor = .white
+        setupStatefulViewLayout()
     }
 }
 
@@ -139,5 +105,11 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
         let item = airlines[indexPath.row]
         cell.setup(with: item)
         return cell
+    }
+}
+
+extension AirlineListViewController: StatefulViewing {
+    func didTapRetryButton() {
+        interactor.fetchAirlineList()
     }
 }

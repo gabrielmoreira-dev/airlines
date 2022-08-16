@@ -48,6 +48,7 @@
 		C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */; };
 		C0D3350028A73E1300F44D27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D334FF28A73E1300F44D27 /* LoadingView.swift */; };
 		C0E9FAE8288E516C00D8FC8A /* AirlineFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */; };
+		C0EE98D528AC3C67004D878F /* StatefulViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE98D428AC3C67004D878F /* StatefulViewing.swift */; };
 		C0F5FB3328A8B03D001E3396 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = C0F5FB3228A8B03D001E3396 /* swiftgen.yml */; };
 		C0F5FB5528A8B826001E3396 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0F5FB5728A8B826001E3396 /* Localizable.strings */; };
 		C0F5FB6028A8B906001E3396 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F5FB5F28A8B905001E3396 /* Strings.generated.swift */; };
@@ -113,6 +114,7 @@
 		C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C0D334FF28A73E1300F44D27 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineFlowCoordinator.swift; sourceTree = "<group>"; };
+		C0EE98D428AC3C67004D878F /* StatefulViewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewing.swift; sourceTree = "<group>"; };
 		C0F5FB3228A8B03D001E3396 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		C0F5FB5628A8B826001E3396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0F5FB5F28A8B905001E3396 /* Strings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
@@ -181,7 +183,6 @@
 		137DB642263F0A3800B4EEBF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				C034DFCA28A9B8560061BBBB /* ErrorHandling */,
 				C0B8477B28A9A60100DA180E /* UI */,
 				C0A7AE272858203500D42292 /* Networking */,
 				137DB65D263F39B300B4EEBF /* Extension */,
@@ -202,12 +203,12 @@
 		137DB646263F0D2600B4EEBF /* Airline */ = {
 			isa = PBXGroup;
 			children = (
-				137DB647263F0D2D00B4EEBF /* List */,
+				137DB647263F0D2D00B4EEBF /* AirlineList */,
 			);
 			path = Airline;
 			sourceTree = "<group>";
 		};
-		137DB647263F0D2D00B4EEBF /* List */ = {
+		137DB647263F0D2D00B4EEBF /* AirlineList */ = {
 			isa = PBXGroup;
 			children = (
 				C028060C2856A36A00D012A3 /* Models */,
@@ -219,7 +220,7 @@
 				137DB654263F104100B4EEBF /* AirlineListFactory.swift */,
 				C02806122856A6A900D012A3 /* AirlineListCoordinator.swift */,
 			);
-			path = List;
+			path = AirlineList;
 			sourceTree = "<group>";
 		};
 		137DB658263F131F00B4EEBF /* Components */ = {
@@ -288,14 +289,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C034DFCA28A9B8560061BBBB /* ErrorHandling */ = {
+		C034DFCA28A9B8560061BBBB /* Error */ = {
 			isa = PBXGroup;
 			children = (
 				C034DFCB28A9B8710061BBBB /* ErrorViewModeling.swift */,
 				C034DFDA28A9BB4E0061BBBB /* ErrorViewModelResolver.swift */,
 				C034DFD928A9BB1D0061BBBB /* ViewModels */,
 			);
-			path = ErrorHandling;
+			path = Error;
 			sourceTree = "<group>";
 		};
 		C034DFD928A9BB1D0061BBBB /* ViewModels */ = {
@@ -371,6 +372,7 @@
 		C0B8477B28A9A60100DA180E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0EE98D028AC3BC8004D878F /* Helpers */,
 				C0B8477C28A9A61400DA180E /* Tokens */,
 				C0D334FE28A73DF400F44D27 /* Components */,
 			);
@@ -402,6 +404,23 @@
 				C08893E6288E57AD00CEAA86 /* PassengerFlowCoordinator.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		C0EE98D028AC3BC8004D878F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C0EE98D128AC3BD3004D878F /* StatefulView */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C0EE98D128AC3BD3004D878F /* StatefulView */ = {
+			isa = PBXGroup;
+			children = (
+				C034DFCA28A9B8560061BBBB /* Error */,
+				C0EE98D428AC3C67004D878F /* StatefulViewing.swift */,
+			);
+			path = StatefulView;
 			sourceTree = "<group>";
 		};
 		C0F5FB3928A8B282001E3396 /* Localizable */ = {
@@ -612,6 +631,7 @@
 				137DB66F263F5BD200B4EEBF /* PassengerListViewScreen.swift in Sources */,
 				C0B8477E28A9A6CD00DA180E /* Space.swift in Sources */,
 				137DB671263F5E4700B4EEBF /* PassengerListFactory.swift in Sources */,
+				C0EE98D528AC3C67004D878F /* StatefulViewing.swift in Sources */,
 				C0F5FB6028A8B906001E3396 /* Strings.generated.swift in Sources */,
 				137DB62C263F071600B4EEBF /* AppDelegate.swift in Sources */,
 				137DB64F263F0D4500B4EEBF /* AirlineListService.swift in Sources */,
