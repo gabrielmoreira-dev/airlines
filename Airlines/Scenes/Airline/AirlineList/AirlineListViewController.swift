@@ -12,7 +12,7 @@ private extension AirlineListViewController.Layout {
     }
 }
 
-final class AirlineListViewController: UIViewController {
+final class AirlineListViewController: StatefulViewController {
     fileprivate enum Layout { }
     private typealias Localizable = Strings.Airline.List
     
@@ -37,6 +37,30 @@ final class AirlineListViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         interactor.getAirlineList()
+    }
+    
+    override func didTapRetryButton() {
+        interactor.getAirlineList()
+    }
+    
+    override func setupHierarchy() {
+        super.setupHierarchy()
+        view.addSubview(tableView)
+    }
+    
+    override func setupConstraints() {
+        super.setupConstraints()
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+    
+    override func setupView() {
+        super.setupView()
+        title = Localizable.title
     }
     
     init(interactor: AirlineListInteracting) {
@@ -64,33 +88,6 @@ extension AirlineListViewController: AirlineListDisplaying {
     }
 }
 
-private extension AirlineListViewController {
-    func setupLayout() {
-        setupHierarchy()
-        setupConstraints()
-        setupView()
-    }
-    
-    func setupHierarchy() {
-        view.addSubview(tableView)
-    }
-    
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-    }
-    
-    func setupView() {
-        title = Localizable.title
-        view.backgroundColor = .white
-        setupStatefulViewLayout()
-    }
-}
-
 extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         airlines.count
@@ -105,11 +102,5 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
         let item = airlines[indexPath.row]
         cell.setup(with: item)
         return cell
-    }
-}
-
-extension AirlineListViewController: StatefulViewing {
-    func didTapRetryButton() {
-        interactor.getAirlineList()
     }
 }

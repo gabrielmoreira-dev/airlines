@@ -14,6 +14,7 @@ final class RefactoryPassengerListInteractor {
 
 extension RefactoryPassengerListInteractor: RefactoryPassengerListInteracting {
     func getPassengerList() {
+        presenter.presentLoadingState()
         service.fetchPassengerList(next: 0) { [weak self] result in
             guard let self = self else { return }
             
@@ -33,6 +34,6 @@ private extension RefactoryPassengerListInteractor {
     }
     
     func handleError(_ error: ApiError) {
-         // TODO
+         presenter.presentErrorState(error: error)
     }
 }

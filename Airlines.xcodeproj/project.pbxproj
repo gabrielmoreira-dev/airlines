@@ -59,7 +59,7 @@
 		C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */; };
 		C0D3350028A73E1300F44D27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D334FF28A73E1300F44D27 /* LoadingView.swift */; };
 		C0E9FAE8288E516C00D8FC8A /* AirlineFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */; };
-		C0EE98D528AC3C67004D878F /* StatefulViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE98D428AC3C67004D878F /* StatefulViewing.swift */; };
+		C0EE98D528AC3C67004D878F /* StatefulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE98D428AC3C67004D878F /* StatefulViewController.swift */; };
 		C0F5FB3328A8B03D001E3396 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = C0F5FB3228A8B03D001E3396 /* swiftgen.yml */; };
 		C0F5FB5528A8B826001E3396 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0F5FB5728A8B826001E3396 /* Localizable.strings */; };
 		C0F5FB6028A8B906001E3396 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F5FB5F28A8B905001E3396 /* Strings.generated.swift */; };
@@ -136,7 +136,7 @@
 		C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C0D334FF28A73E1300F44D27 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineFlowCoordinator.swift; sourceTree = "<group>"; };
-		C0EE98D428AC3C67004D878F /* StatefulViewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewing.swift; sourceTree = "<group>"; };
+		C0EE98D428AC3C67004D878F /* StatefulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewController.swift; sourceTree = "<group>"; };
 		C0F5FB3228A8B03D001E3396 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		C0F5FB5628A8B826001E3396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0F5FB5F28A8B905001E3396 /* Strings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
@@ -483,7 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				C034DFCA28A9B8560061BBBB /* Error */,
-				C0EE98D428AC3C67004D878F /* StatefulViewing.swift */,
+				C0EE98D428AC3C67004D878F /* StatefulViewController.swift */,
 			);
 			path = StatefulView;
 			sourceTree = "<group>";
@@ -701,7 +701,7 @@
 				137DB66F263F5BD200B4EEBF /* PassengerListViewScreen.swift in Sources */,
 				C0B8477E28A9A6CD00DA180E /* Space.swift in Sources */,
 				137DB671263F5E4700B4EEBF /* PassengerListFactory.swift in Sources */,
-				C0EE98D528AC3C67004D878F /* StatefulViewing.swift in Sources */,
+				C0EE98D528AC3C67004D878F /* StatefulViewController.swift in Sources */,
 				C029195228AD30DD00ECC76A /* Passenger.swift in Sources */,
 				C0F5FB6028A8B906001E3396 /* Strings.generated.swift in Sources */,
 				137DB62C263F071600B4EEBF /* AppDelegate.swift in Sources */,
