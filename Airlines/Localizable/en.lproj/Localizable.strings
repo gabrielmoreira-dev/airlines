@@ -11,3 +11,6 @@
 
 // Airline list
 "Airline.List.title" = "Airlines";
+
+// Passenger list
+"Passenger.List.title" = "Passengers";

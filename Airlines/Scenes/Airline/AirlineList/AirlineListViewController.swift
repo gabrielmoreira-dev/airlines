@@ -36,7 +36,7 @@ final class AirlineListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        interactor.fetchAirlineList()
+        interactor.getAirlineList()
     }
     
     init(interactor: AirlineListInteracting) {
@@ -110,6 +110,6 @@ extension AirlineListViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension AirlineListViewController: StatefulViewing {
     func didTapRetryButton() {
-        interactor.fetchAirlineList()
+        interactor.getAirlineList()
     }
 }

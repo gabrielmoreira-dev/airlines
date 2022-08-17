@@ -1,5 +1,5 @@
 protocol RefactoryPassengerListPresenting {
-    
+    func presentPassengerList()
 }
 
 final class RefactoryPassengerListPresenter {
@@ -12,5 +12,7 @@ final class RefactoryPassengerListPresenter {
 }
 
 extension RefactoryPassengerListPresenter: RefactoryPassengerListPresenting {
-    
+    func presentPassengerList() {
+        viewController?.displayAirlineList()
+    }
 }

@@ -1,5 +1,5 @@
 protocol AirlineListInteracting {
-    func fetchAirlineList()
+    func getAirlineList()
 }
 
 final class AirlineListInteractor {
@@ -13,7 +13,7 @@ final class AirlineListInteractor {
 }
 
 extension AirlineListInteractor: AirlineListInteracting {
-    func fetchAirlineList() {
+    func getAirlineList() {
         presenter.presentLoadingState()
         service.fetchAirlineList { [weak self] result in
             guard let self = self else { return }
