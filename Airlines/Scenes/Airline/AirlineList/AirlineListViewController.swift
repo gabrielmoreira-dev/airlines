@@ -39,10 +39,6 @@ final class AirlineListViewController: StatefulViewController {
         interactor.getAirlineList()
     }
     
-    override func didTapRetryButton() {
-        interactor.getAirlineList()
-    }
-    
     override func setupHierarchy() {
         super.setupHierarchy()
         view.addSubview(tableView)
@@ -61,6 +57,10 @@ final class AirlineListViewController: StatefulViewController {
     override func setupView() {
         super.setupView()
         title = Localizable.title
+    }
+    
+    override func didTapRetryButton() {
+        interactor.retry()
     }
     
     init(interactor: AirlineListInteracting) {

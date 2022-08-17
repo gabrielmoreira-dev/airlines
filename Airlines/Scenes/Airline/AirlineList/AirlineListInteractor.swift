@@ -1,5 +1,6 @@
 protocol AirlineListInteracting {
     func getAirlineList()
+    func retry()
 }
 
 final class AirlineListInteractor {
@@ -25,6 +26,10 @@ extension AirlineListInteractor: AirlineListInteracting {
                     self.handleError(error)
             }
         }
+    }
+    
+    func retry() {
+        getAirlineList()
     }
 }
 
