@@ -1,7 +1,9 @@
 protocol RefactoryPassengerListPresenting {
     func presentPassengerList(_ passengers: [Passenger])
+    func presenterFooterLoadingState()
     func presentLoadingState()
     func presentErrorState(error: ApiError)
+    func presentPassengerMessage(for passenger: Passenger)
     func didNextStep(action: RefactoryPassengerListAction)
 }
 
@@ -21,6 +23,10 @@ extension RefactoryPassengerListPresenter: RefactoryPassengerListPresenting {
         viewController?.displayPassengerList(passengerViewModelList)
     }
     
+    func presenterFooterLoadingState() {
+        viewController?.displayFooterLoadingState()
+    }
+    
     func presentLoadingState() {
         viewController?.displayLoadingState()
     }
@@ -28,6 +34,14 @@ extension RefactoryPassengerListPresenter: RefactoryPassengerListPresenting {
     func presentErrorState(error: ApiError) {
         let model = ErrorViewModelResolver.resolve(from: error)
         viewController?.displayErrorState(model)
+    }
+    
+    func presentPassengerMessage(for passenger: Passenger) {
+        let message = PassengerMessage(
+            title: passenger.name,
+            description: Localizable.Message.description(passenger.trips)
+        )
+        coordinator.perform(action: .showMessage(message))
     }
     
     func didNextStep(action: RefactoryPassengerListAction) {

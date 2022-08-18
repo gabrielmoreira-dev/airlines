@@ -41,6 +41,7 @@
 		C034DFD228A9B9010061BBBB /* NetworkErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034DFD128A9B9010061BBBB /* NetworkErrorViewModel.swift */; };
 		C034DFD628A9B9F60061BBBB /* GenericErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034DFD528A9B9F60061BBBB /* GenericErrorViewModel.swift */; };
 		C034DFDB28A9BB4E0061BBBB /* ErrorViewModelResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034DFDA28A9BB4E0061BBBB /* ErrorViewModelResolver.swift */; };
+		C0352A1B28AE8D490069A7E8 /* PassengerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0352A1A28AE8D490069A7E8 /* PassengerMessage.swift */; };
 		C08893E7288E57AD00CEAA86 /* PassengerFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08893E6288E57AD00CEAA86 /* PassengerFlowCoordinator.swift */; };
 		C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7543288E287A0014DF13 /* AirlineListInteractorTest.swift */; };
 		C09F754B288E2E4C0014DF13 /* Airline+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F754A288E2E4C0014DF13 /* Airline+Fixtures.swift */; };
@@ -59,6 +60,7 @@
 		C0BEBC8628AC8CA2000EC428 /* RefactoryPassengerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC8528AC8CA2000EC428 /* RefactoryPassengerListViewController.swift */; };
 		C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */; };
 		C0D3350028A73E1300F44D27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D334FF28A73E1300F44D27 /* LoadingView.swift */; };
+		C0D4845828ADF4E400757B02 /* PassengerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4845728ADF4E400757B02 /* PassengerListTableViewCell.swift */; };
 		C0E9FAE8288E516C00D8FC8A /* AirlineFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */; };
 		C0EE98D528AC3C67004D878F /* StatefulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE98D428AC3C67004D878F /* StatefulViewController.swift */; };
 		C0F5FB3328A8B03D001E3396 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = C0F5FB3228A8B03D001E3396 /* swiftgen.yml */; };
@@ -117,6 +119,7 @@
 		C034DFD128A9B9010061BBBB /* NetworkErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewModel.swift; sourceTree = "<group>"; };
 		C034DFD528A9B9F60061BBBB /* GenericErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorViewModel.swift; sourceTree = "<group>"; };
 		C034DFDA28A9BB4E0061BBBB /* ErrorViewModelResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModelResolver.swift; sourceTree = "<group>"; };
+		C0352A1A28AE8D490069A7E8 /* PassengerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerMessage.swift; sourceTree = "<group>"; };
 		C08893E6288E57AD00CEAA86 /* PassengerFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerFlowCoordinator.swift; sourceTree = "<group>"; };
 		C09F752F288E276F0014DF13 /* AirlinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09F7533288E276F0014DF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		C0BEBC8528AC8CA2000EC428 /* RefactoryPassengerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefactoryPassengerListViewController.swift; sourceTree = "<group>"; };
 		C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C0D334FF28A73E1300F44D27 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C0D4845728ADF4E400757B02 /* PassengerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListTableViewCell.swift; sourceTree = "<group>"; };
 		C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineFlowCoordinator.swift; sourceTree = "<group>"; };
 		C0EE98D428AC3C67004D878F /* StatefulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewController.swift; sourceTree = "<group>"; };
 		C0F5FB3228A8B03D001E3396 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -235,8 +239,8 @@
 		137DB647263F0D2D00B4EEBF /* AirlineList */ = {
 			isa = PBXGroup;
 			children = (
-				C028060C2856A36A00D012A3 /* Models */,
 				137DB658263F131F00B4EEBF /* Components */,
+				C028060C2856A36A00D012A3 /* Models */,
 				C02806122856A6A900D012A3 /* AirlineListCoordinator.swift */,
 				137DB654263F104100B4EEBF /* AirlineListFactory.swift */,
 				137DB64D263F0D4500B4EEBF /* AirlineListInteractor.swift */,
@@ -344,6 +348,7 @@
 			children = (
 				C029195128AD30DD00ECC76A /* Passenger.swift */,
 				C029195728AD314F00ECC76A /* PassengerPayload.swift */,
+				C0352A1A28AE8D490069A7E8 /* PassengerMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,8 +457,9 @@
 		C0BEBC7028AC8BBD000EC428 /* PassengerList */ = {
 			isa = PBXGroup;
 			children = (
-				C028FBD428AD6A2800633EB6 /* ViewModels */,
+				C0D4845628ADF49900757B02 /* Components */,
 				C029195028AD309500ECC76A /* Models */,
+				C028FBD428AD6A2800633EB6 /* ViewModels */,
 				C0BEBC7128AC8BF4000EC428 /* RefactoryPassengerListCoordinator.swift */,
 				C0BEBC7528AC8C14000EC428 /* RefactoryPassengerListFactory.swift */,
 				C0BEBC7928AC8C39000EC428 /* RefactoryPassengerListInteractor.swift */,
@@ -469,6 +475,14 @@
 			children = (
 				C0D334FF28A73E1300F44D27 /* LoadingView.swift */,
 				C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C0D4845628ADF49900757B02 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4845728ADF4E400757B02 /* PassengerListTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -705,6 +719,7 @@
 				137DB669263F5AB700B4EEBF /* PassengerListWorker.swift in Sources */,
 				C0BEBC8628AC8CA2000EC428 /* RefactoryPassengerListViewController.swift in Sources */,
 				137DB65A263F133A00B4EEBF /* AirlineListTableViewCell.swift in Sources */,
+				C0352A1B28AE8D490069A7E8 /* PassengerMessage.swift in Sources */,
 				C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */,
 				137DB644263F0A4900B4EEBF /* TabBarController.swift in Sources */,
 				C0BEBC8228AC8C81000EC428 /* RefactoryPassengerListService.swift in Sources */,
@@ -729,6 +744,7 @@
 				C0BEBC7A28AC8C39000EC428 /* RefactoryPassengerListInteractor.swift in Sources */,
 				C029195828AD314F00ECC76A /* PassengerPayload.swift in Sources */,
 				C028060E2856A39800D012A3 /* Airline.swift in Sources */,
+				C0D4845828ADF4E400757B02 /* PassengerListTableViewCell.swift in Sources */,
 				C034DFD228A9B9010061BBBB /* NetworkErrorViewModel.swift in Sources */,
 				137DB66B263F5AB700B4EEBF /* PassengerListModels.swift in Sources */,
 				C08893E7288E57AD00CEAA86 /* PassengerFlowCoordinator.swift in Sources */,

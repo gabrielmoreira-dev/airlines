@@ -13,11 +13,11 @@ private extension AirlineListViewController.Layout {
 }
 
 final class AirlineListViewController: StatefulViewController {
-    fileprivate enum Layout { }
     private typealias Localizable = Strings.Airline.List
+    fileprivate enum Layout { }
     
-    private var airlines: [Airline] = []
     private let interactor: AirlineListInteracting
+    private var airlines: [Airline] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()

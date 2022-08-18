@@ -2,13 +2,14 @@ protocol RefactoryPassengerListInteracting {
     func getPassengerList()
     func getMorePassengers()
     func retry()
+    func showPasssengerMessage(at index: Int)
 }
 
 final class RefactoryPassengerListInteractor {
     private let presenter: RefactoryPassengerListPresenting
     private let service: RefactoryPassengerListServicing
     private var passengers: [Passenger] = []
-    private var nextPage: Int? = 0
+    private var nextPage: Int?
     
     init(presenter: RefactoryPassengerListPresenting, service: RefactoryPassengerListServicing) {
         self.presenter = presenter
@@ -19,7 +20,28 @@ final class RefactoryPassengerListInteractor {
 extension RefactoryPassengerListInteractor: RefactoryPassengerListInteracting {
     func getPassengerList() {
         presenter.presentLoadingState()
-        service.fetchPassengerList(page: nextPage ?? 0) { [weak self] result in
+        fetchPassengerList()
+    }
+    
+    func getMorePassengers() {
+        guard let page = nextPage else { return }
+        presenter.presenterFooterLoadingState()
+        fetchPassengerList(page: page)
+    }
+    
+    func retry() {
+        getPassengerList()
+    }
+    
+    func showPasssengerMessage(at index: Int) {
+        let passenger = passengers[index]
+        presenter.presentPassengerMessage(for: passenger)
+    }
+}
+
+private extension RefactoryPassengerListInteractor {
+    func fetchPassengerList(page: Int = 0) {
+        service.fetchPassengerList(page: page) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -31,17 +53,6 @@ extension RefactoryPassengerListInteractor: RefactoryPassengerListInteracting {
         }
     }
     
-    func getMorePassengers() {
-        guard let _ = nextPage else { return }
-        getPassengerList()
-    }
-    
-    func retry() {
-        getPassengerList()
-    }
-}
-
-private extension RefactoryPassengerListInteractor {
     func handleSuccess(data: PassengerPayload) {
         passengers.append(contentsOf: data.passengers)
         nextPage = data.next
