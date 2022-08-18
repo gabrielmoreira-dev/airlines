@@ -1,23 +1,23 @@
-protocol RefactoryPassengerListInteracting {
+protocol PassengerListInteracting {
     func getPassengerList()
     func getMorePassengers()
     func retry()
     func showPasssengerMessage(at index: Int)
 }
 
-final class RefactoryPassengerListInteractor {
-    private let presenter: RefactoryPassengerListPresenting
-    private let service: RefactoryPassengerListServicing
+final class PassengerListInteractor {
+    private let presenter: PassengerListPresenting
+    private let service: PassengerListServicing
     private var passengers: [Passenger] = []
     private var nextPage: Int?
     
-    init(presenter: RefactoryPassengerListPresenting, service: RefactoryPassengerListServicing) {
+    init(presenter: PassengerListPresenting, service: PassengerListServicing) {
         self.presenter = presenter
         self.service = service
     }
 }
 
-extension RefactoryPassengerListInteractor: RefactoryPassengerListInteracting {
+extension PassengerListInteractor: PassengerListInteracting {
     func getPassengerList() {
         presenter.presentLoadingState()
         fetchPassengerList()
@@ -39,7 +39,7 @@ extension RefactoryPassengerListInteractor: RefactoryPassengerListInteracting {
     }
 }
 
-private extension RefactoryPassengerListInteractor {
+private extension PassengerListInteractor {
     func fetchPassengerList(page: Int = 0) {
         service.fetchPassengerList(page: page) { [weak self] result in
             guard let self = self else { return }

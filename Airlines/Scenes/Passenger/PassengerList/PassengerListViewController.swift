@@ -1,23 +1,23 @@
 import UIKit
 
-protocol RefactoryPassengerListDisplaying: AnyObject {
+protocol PassengerListDisplaying: AnyObject {
     func displayPassengerList(_ passengers: [PassengerViewModel])
     func displayFooterLoadingState()
     func displayLoadingState()
     func displayErrorState(_ model: ErrorViewModeling)
 }
 
-private extension RefactoryPassengerListViewController.Layout {
+private extension PassengerListViewController.Layout {
     enum Size {
         static let spinnerViewHeight: CGFloat = Space.base09
     }
 }
 
-final class RefactoryPassengerListViewController: StatefulViewController {
+final class PassengerListViewController: StatefulViewController {
     private typealias Localizable = Strings.Passenger.List
     fileprivate enum Layout { }
     
-    private let interactor: RefactoryPassengerListInteracting
+    private let interactor: PassengerListInteracting
     private var passengers: [PassengerViewModel] = []
     
     private lazy var tableView: UITableView = {
@@ -83,7 +83,7 @@ final class RefactoryPassengerListViewController: StatefulViewController {
         interactor.retry()
     }
     
-    init(interactor: RefactoryPassengerListInteracting) {
+    init(interactor: PassengerListInteracting) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -92,7 +92,7 @@ final class RefactoryPassengerListViewController: StatefulViewController {
     required init?(coder: NSCoder) { nil }
 }
 
-extension RefactoryPassengerListViewController: RefactoryPassengerListDisplaying {
+extension PassengerListViewController: PassengerListDisplaying {
     func displayPassengerList(_ passengers: [PassengerViewModel]) {
         self.passengers = passengers
         tableView.reloadData()
@@ -113,7 +113,7 @@ extension RefactoryPassengerListViewController: RefactoryPassengerListDisplaying
     }
 }
 
-extension RefactoryPassengerListViewController: UITableViewDataSource, UITableViewDelegate {
+extension PassengerListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         passengers.count
     }
@@ -135,7 +135,7 @@ extension RefactoryPassengerListViewController: UITableViewDataSource, UITableVi
     }
 }
 
-extension RefactoryPassengerListViewController: UIScrollViewDelegate {
+extension PassengerListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         let expectedPosition = tableView.contentSize.height - scrollView.frame.size.height

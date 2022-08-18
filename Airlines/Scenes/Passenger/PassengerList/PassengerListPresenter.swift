@@ -1,23 +1,23 @@
-protocol RefactoryPassengerListPresenting {
+protocol PassengerListPresenting {
     func presentPassengerList(_ passengers: [Passenger])
     func presenterFooterLoadingState()
     func presentLoadingState()
     func presentErrorState(error: ApiError)
     func presentPassengerMessage(for passenger: Passenger)
-    func didNextStep(action: RefactoryPassengerListAction)
+    func didNextStep(action: PassengerListAction)
 }
 
-final class RefactoryPassengerListPresenter {
+final class PassengerListPresenter {
     private typealias Localizable = Strings.Passenger.List
-    private let coordinator: RefactoryPassengerListCoordinating
-    weak var viewController: RefactoryPassengerListDisplaying?
+    private let coordinator: PassengerListCoordinating
+    weak var viewController: PassengerListDisplaying?
     
-    init(coordinator: RefactoryPassengerListCoordinating) {
+    init(coordinator: PassengerListCoordinating) {
         self.coordinator = coordinator
     }
 }
 
-extension RefactoryPassengerListPresenter: RefactoryPassengerListPresenting {
+extension PassengerListPresenter: PassengerListPresenting {
     func presentPassengerList(_ passengers: [Passenger]) {
         let passengerViewModelList = getPassengerViewModelList(from: passengers)
         viewController?.displayPassengerList(passengerViewModelList)
@@ -44,12 +44,12 @@ extension RefactoryPassengerListPresenter: RefactoryPassengerListPresenting {
         coordinator.perform(action: .showMessage(message))
     }
     
-    func didNextStep(action: RefactoryPassengerListAction) {
+    func didNextStep(action: PassengerListAction) {
         coordinator.perform(action: action)
     }
 }
 
-private extension RefactoryPassengerListPresenter {
+private extension PassengerListPresenter {
     func getPassengerViewModelList(from passengers: [Passenger]) -> [PassengerViewModel] {
         passengers.map {
             PassengerViewModel(

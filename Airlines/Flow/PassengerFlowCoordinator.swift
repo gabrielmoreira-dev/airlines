@@ -9,7 +9,7 @@ final class PassengerFlowCoordinator {
     }
     
     func start() {
-        let controller = RefactoryPassengerListFactory.make()
+        let controller = PassengerListFactory.make()
         viewController = controller
         navigationController.pushViewController(controller, animated: true)
     }

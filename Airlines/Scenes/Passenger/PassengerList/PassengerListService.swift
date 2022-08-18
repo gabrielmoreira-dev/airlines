@@ -1,12 +1,12 @@
 import Foundation
 
-protocol RefactoryPassengerListServicing {
+protocol PassengerListServicing {
     func fetchPassengerList(page: Int, completion: @escaping PassengerListCompletion)
 }
 
 typealias PassengerListCompletion = (Result<PassengerPayload, ApiError>) -> Void
 
-final class RefactoryPassengerListService {
+final class PassengerListService {
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -14,7 +14,7 @@ final class RefactoryPassengerListService {
     }
 }
 
-extension RefactoryPassengerListService: RefactoryPassengerListServicing {
+extension PassengerListService: PassengerListServicing {
     func fetchPassengerList(page: Int, completion: @escaping PassengerListCompletion) {
         let endpoint = PassengerEndpoint.passengerList(page: page)
         let api = Api<PassengerPayload>(endpoint: endpoint)
