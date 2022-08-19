@@ -38,7 +38,7 @@ private final class AirlineListViewControllerSpy: AirlineListDisplaying {
 final class AirlineListPresenterTest: XCTestCase {
     private lazy var coordinatorSpy = AirlineListCoordinatorSpy()
     private lazy var viewControllerSpy = AirlineListViewControllerSpy()
-    private lazy var sut: AirlineListPresenter = {
+    private lazy var sut: AirlineListPresenting = {
         let presenter = AirlineListPresenter(coordinator: coordinatorSpy)
         presenter.viewController = viewControllerSpy
         return presenter

@@ -11,3 +11,9 @@
 
 // Airline list
 "Airline.List.title" = "Airlines";
+
+// Passenger list
+"Passenger.List.title" = "Passengers";
+"Passenger.List.Item.description" = "%@ trips";
+"Passenger.List.Message.description" = "The passenger has %@ trips.";
+"Passenger.List.Message.button" = "OK";

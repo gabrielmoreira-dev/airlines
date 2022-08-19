@@ -1,7 +1,6 @@
-import Foundation
-
 protocol AirlineListInteracting {
-    func fetchAirlineList()
+    func getAirlineList()
+    func retry()
 }
 
 final class AirlineListInteractor {
@@ -15,7 +14,7 @@ final class AirlineListInteractor {
 }
 
 extension AirlineListInteractor: AirlineListInteracting {
-    func fetchAirlineList() {
+    func getAirlineList() {
         presenter.presentLoadingState()
         service.fetchAirlineList { [weak self] result in
             guard let self = self else { return }
@@ -27,6 +26,10 @@ extension AirlineListInteractor: AirlineListInteracting {
                     self.handleError(error)
             }
         }
+    }
+    
+    func retry() {
+        getAirlineList()
     }
 }
 

@@ -45,6 +45,11 @@ final class ErrorView: UIView {
         titleLabel.text = model.title
         descriptionLabel.text = model.description
     }
+    
+    func with(_ retryAction: @escaping () -> Void) -> Self {
+        self.retryAction = retryAction
+        return self
+    }
 }
 
 private extension ErrorView {

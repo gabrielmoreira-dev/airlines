@@ -48,7 +48,7 @@ extension AirlineListInteractorTest {
     func testGetAirlineList_WhenSucceed_ShouldCallPresentAirlineList() {
         serviceStub.fetchAirlineListResult = .success(airlineList)
         
-        sut.fetchAirlineList()
+        sut.getAirlineList()
         
         XCTAssertEqual(presenterSpy.messages, [
             .presentLoadingState,
@@ -60,7 +60,30 @@ extension AirlineListInteractorTest {
         let error: ApiError = .emptyData
         serviceStub.fetchAirlineListResult = .failure(error)
         
-        sut.fetchAirlineList()
+        sut.getAirlineList()
+        
+        XCTAssertEqual(presenterSpy.messages, [.presentLoadingState, .presentErrorState(error: error)])
+    }
+}
+
+// MARK: - Retry tests
+extension AirlineListInteractorTest {
+    func testRetry_WhenSucceed_ShouldCallPresentAirlineList() {
+        serviceStub.fetchAirlineListResult = .success(airlineList)
+        
+        sut.retry()
+        
+        XCTAssertEqual(presenterSpy.messages, [
+            .presentLoadingState,
+            .presentAirlineList(airlines: airlineList)
+        ])
+    }
+    
+    func testRetry_WhenFailed_ShouldCallPresentErrorState() {
+        let error: ApiError = .emptyData
+        serviceStub.fetchAirlineListResult = .failure(error)
+        
+        sut.retry()
         
         XCTAssertEqual(presenterSpy.messages, [.presentLoadingState, .presentErrorState(error: error)])
     }
