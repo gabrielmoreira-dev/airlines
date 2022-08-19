@@ -25,7 +25,7 @@ extension PassengerListInteractor: PassengerListInteracting {
     
     func getMorePassengers() {
         guard let page = nextPage else { return }
-        presenter.presenterFooterLoadingState()
+        presenter.presentFooterLoadingState()
         fetchPassengerList(page: page)
     }
     

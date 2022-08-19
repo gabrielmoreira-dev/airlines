@@ -1,6 +1,6 @@
 protocol PassengerListPresenting {
     func presentPassengerList(_ passengers: [Passenger])
-    func presenterFooterLoadingState()
+    func presentFooterLoadingState()
     func presentLoadingState()
     func presentErrorState(error: ApiError)
     func presentPassengerMessage(for passenger: Passenger)
@@ -23,7 +23,7 @@ extension PassengerListPresenter: PassengerListPresenting {
         viewController?.displayPassengerList(passengerViewModelList)
     }
     
-    func presenterFooterLoadingState() {
+    func presentFooterLoadingState() {
         viewController?.displayFooterLoadingState()
     }
     

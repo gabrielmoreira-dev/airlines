@@ -34,6 +34,9 @@
 		C034DFD628A9B9F60061BBBB /* GenericErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034DFD528A9B9F60061BBBB /* GenericErrorViewModel.swift */; };
 		C034DFDB28A9BB4E0061BBBB /* ErrorViewModelResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C034DFDA28A9BB4E0061BBBB /* ErrorViewModelResolver.swift */; };
 		C0352A1B28AE8D490069A7E8 /* PassengerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0352A1A28AE8D490069A7E8 /* PassengerMessage.swift */; };
+		C07D022D28AF2D75008914C3 /* Passenger+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D022C28AF2D75008914C3 /* Passenger+Fixtures.swift */; };
+		C07D023328AF3062008914C3 /* PassengerViewModel+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D023228AF3062008914C3 /* PassengerViewModel+Fixtures.swift */; };
+		C07D023728AF4EFA008914C3 /* PassengerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D023628AF4EFA008914C3 /* PassengerMessage.swift */; };
 		C08893E7288E57AD00CEAA86 /* PassengerFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08893E6288E57AD00CEAA86 /* PassengerFlowCoordinator.swift */; };
 		C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7543288E287A0014DF13 /* AirlineListInteractorTest.swift */; };
 		C09F754B288E2E4C0014DF13 /* Airline+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F754A288E2E4C0014DF13 /* Airline+Fixtures.swift */; };
@@ -104,6 +107,9 @@
 		C034DFD528A9B9F60061BBBB /* GenericErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorViewModel.swift; sourceTree = "<group>"; };
 		C034DFDA28A9BB4E0061BBBB /* ErrorViewModelResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModelResolver.swift; sourceTree = "<group>"; };
 		C0352A1A28AE8D490069A7E8 /* PassengerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerMessage.swift; sourceTree = "<group>"; };
+		C07D022C28AF2D75008914C3 /* Passenger+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Passenger+Fixtures.swift"; sourceTree = "<group>"; };
+		C07D023228AF3062008914C3 /* PassengerViewModel+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PassengerViewModel+Fixtures.swift"; sourceTree = "<group>"; };
+		C07D023628AF4EFA008914C3 /* PassengerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerMessage.swift; sourceTree = "<group>"; };
 		C08893E6288E57AD00CEAA86 /* PassengerFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerFlowCoordinator.swift; sourceTree = "<group>"; };
 		C09F752F288E276F0014DF13 /* AirlinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09F7533288E276F0014DF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -296,6 +302,7 @@
 		C0280B2528AC935A00B6F367 /* PassengerList */ = {
 			isa = PBXGroup;
 			children = (
+				C07D022B28AF2CF1008914C3 /* Fixture */,
 				C0280B2628AC97BD00B6F367 /* PassengerListInteractorTest.swift */,
 				C0280B2C28AC97D900B6F367 /* PassengerListPresenterTest.swift */,
 			);
@@ -337,6 +344,16 @@
 				C034DFD128A9B9010061BBBB /* NetworkErrorViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C07D022B28AF2CF1008914C3 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				C07D022C28AF2D75008914C3 /* Passenger+Fixtures.swift */,
+				C07D023228AF3062008914C3 /* PassengerViewModel+Fixtures.swift */,
+				C07D023628AF4EFA008914C3 /* PassengerMessage.swift */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 		C09F7530288E276F0014DF13 /* AirlinesTests */ = {
@@ -718,7 +735,10 @@
 				C0280B2D28AC97D900B6F367 /* PassengerListPresenterTest.swift in Sources */,
 				C09F754B288E2E4C0014DF13 /* Airline+Fixtures.swift in Sources */,
 				C0280B2728AC97BD00B6F367 /* PassengerListInteractorTest.swift in Sources */,
+				C07D023328AF3062008914C3 /* PassengerViewModel+Fixtures.swift in Sources */,
 				C09F7551288E337A0014DF13 /* AirlineListPresenterTest.swift in Sources */,
+				C07D022D28AF2D75008914C3 /* Passenger+Fixtures.swift in Sources */,
+				C07D023728AF4EFA008914C3 /* PassengerMessage.swift in Sources */,
 				C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
