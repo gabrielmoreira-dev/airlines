@@ -54,6 +54,7 @@
 		C0BEBC8228AC8C81000EC428 /* PassengerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC8128AC8C81000EC428 /* PassengerListService.swift */; };
 		C0BEBC8628AC8CA2000EC428 /* PassengerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC8528AC8CA2000EC428 /* PassengerListViewController.swift */; };
 		C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */; };
+		C0D2619128B006360037A3B5 /* PassengerPayload+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2619028B006360037A3B5 /* PassengerPayload+Fixtures.swift */; };
 		C0D3350028A73E1300F44D27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D334FF28A73E1300F44D27 /* LoadingView.swift */; };
 		C0D4845828ADF4E400757B02 /* PassengerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4845728ADF4E400757B02 /* PassengerListTableViewCell.swift */; };
 		C0E9FAE8288E516C00D8FC8A /* AirlineFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */; };
@@ -129,6 +130,7 @@
 		C0BEBC8128AC8C81000EC428 /* PassengerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListService.swift; sourceTree = "<group>"; };
 		C0BEBC8528AC8CA2000EC428 /* PassengerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListViewController.swift; sourceTree = "<group>"; };
 		C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C0D2619028B006360037A3B5 /* PassengerPayload+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PassengerPayload+Fixtures.swift"; sourceTree = "<group>"; };
 		C0D334FF28A73E1300F44D27 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C0D4845728ADF4E400757B02 /* PassengerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListTableViewCell.swift; sourceTree = "<group>"; };
 		C0E9FAE7288E516C00D8FC8A /* AirlineFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -350,8 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				C07D022C28AF2D75008914C3 /* Passenger+Fixtures.swift */,
-				C07D023228AF3062008914C3 /* PassengerViewModel+Fixtures.swift */,
 				C07D023628AF4EFA008914C3 /* PassengerMessage.swift */,
+				C0D2619028B006360037A3B5 /* PassengerPayload+Fixtures.swift */,
+				C07D023228AF3062008914C3 /* PassengerViewModel+Fixtures.swift */,
 			);
 			path = Fixture;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				C07D023328AF3062008914C3 /* PassengerViewModel+Fixtures.swift in Sources */,
 				C09F7551288E337A0014DF13 /* AirlineListPresenterTest.swift in Sources */,
 				C07D022D28AF2D75008914C3 /* Passenger+Fixtures.swift in Sources */,
+				C0D2619128B006360037A3B5 /* PassengerPayload+Fixtures.swift in Sources */,
 				C07D023728AF4EFA008914C3 /* PassengerMessage.swift in Sources */,
 				C09F7544288E287A0014DF13 /* AirlineListInteractorTest.swift in Sources */,
 			);

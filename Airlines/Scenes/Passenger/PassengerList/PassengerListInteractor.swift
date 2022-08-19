@@ -8,7 +8,7 @@ protocol PassengerListInteracting {
 final class PassengerListInteractor {
     private let presenter: PassengerListPresenting
     private let service: PassengerListServicing
-    private var passengers: [Passenger] = []
+    private var passengerList: [Passenger] = []
     private var nextPage: Int?
     
     init(presenter: PassengerListPresenting, service: PassengerListServicing) {
@@ -34,7 +34,7 @@ extension PassengerListInteractor: PassengerListInteracting {
     }
     
     func showPasssengerMessage(at index: Int) {
-        let passenger = passengers[index]
+        let passenger = passengerList[index]
         presenter.presentPassengerMessage(for: passenger)
     }
 }
@@ -54,9 +54,9 @@ private extension PassengerListInteractor {
     }
     
     func handleSuccess(data: PassengerPayload) {
-        passengers.append(contentsOf: data.passengers)
+        passengerList.append(contentsOf: data.passengerList)
         nextPage = data.next
-        presenter.presentPassengerList(passengers)
+        presenter.presentPassengerList(passengerList)
     }
     
     func handleError(_ error: ApiError) {

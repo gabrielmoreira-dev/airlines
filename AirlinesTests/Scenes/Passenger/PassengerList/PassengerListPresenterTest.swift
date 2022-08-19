@@ -15,7 +15,7 @@ private final class PassengerListCoordinatorSpy: PassengerListCoordinating {
 
 private final class PassengerListViewControllerSpy: PassengerListDisplaying {
     enum Message: Equatable {
-        case displayPassengerList(passengers: [PassengerViewModel])
+        case displayPassengerList(passengerList: [PassengerViewModel])
         case displayFooterLoadingState
         case displayLoadingState
         case displayErrorState(title: String, description: String)
@@ -23,8 +23,8 @@ private final class PassengerListViewControllerSpy: PassengerListDisplaying {
     
     private(set) var messages: [Message] = []
     
-    func displayPassengerList(_ passengers: [PassengerViewModel]) {
-        messages.append(.displayPassengerList(passengers: passengers))
+    func displayPassengerList(_ passengerList: [PassengerViewModel]) {
+        messages.append(.displayPassengerList(passengerList: passengerList))
     }
     
     func displayFooterLoadingState() {
@@ -57,7 +57,7 @@ extension PassengerListPresenterTest {
         
         sut.presentPassengerList(passengerList)
         
-        XCTAssertEqual(viewControllerSpy.messages, [.displayPassengerList(passengers: passengerViewModelList)])
+        XCTAssertEqual(viewControllerSpy.messages, [.displayPassengerList(passengerList: passengerViewModelList)])
     }
     
     func testPresentFooterLoadingState_WhenCalled_ShouldCallDisplayLoadingState() {

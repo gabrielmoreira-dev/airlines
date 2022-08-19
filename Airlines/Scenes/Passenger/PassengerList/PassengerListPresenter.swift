@@ -1,5 +1,5 @@
 protocol PassengerListPresenting {
-    func presentPassengerList(_ passengers: [Passenger])
+    func presentPassengerList(_ passengerList: [Passenger])
     func presentFooterLoadingState()
     func presentLoadingState()
     func presentErrorState(error: ApiError)
@@ -18,8 +18,8 @@ final class PassengerListPresenter {
 }
 
 extension PassengerListPresenter: PassengerListPresenting {
-    func presentPassengerList(_ passengers: [Passenger]) {
-        let passengerViewModelList = getPassengerViewModelList(from: passengers)
+    func presentPassengerList(_ passengerList: [Passenger]) {
+        let passengerViewModelList = getPassengerViewModelList(from: passengerList)
         viewController?.displayPassengerList(passengerViewModelList)
     }
     
@@ -50,8 +50,8 @@ extension PassengerListPresenter: PassengerListPresenting {
 }
 
 private extension PassengerListPresenter {
-    func getPassengerViewModelList(from passengers: [Passenger]) -> [PassengerViewModel] {
-        passengers.map {
+    func getPassengerViewModelList(from passengerList: [Passenger]) -> [PassengerViewModel] {
+        passengerList.map {
             PassengerViewModel(
                 title: $0.name,
                 message: Localizable.Item.description($0.trips)

@@ -1,4 +1,4 @@
 struct PassengerPayload: Decodable {
-    let passengers: [Passenger]
+    let passengerList: [Passenger]
     let next: Int?
 }

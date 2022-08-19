@@ -1,7 +1,7 @@
 import UIKit
 
 protocol PassengerListDisplaying: AnyObject {
-    func displayPassengerList(_ passengers: [PassengerViewModel])
+    func displayPassengerList(_ passengerList: [PassengerViewModel])
     func displayFooterLoadingState()
     func displayLoadingState()
     func displayErrorState(_ model: ErrorViewModeling)
@@ -18,7 +18,7 @@ final class PassengerListViewController: StatefulViewController {
     fileprivate enum Layout { }
     
     private let interactor: PassengerListInteracting
-    private var passengers: [PassengerViewModel] = []
+    private var passengerList: [PassengerViewModel] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -93,8 +93,8 @@ final class PassengerListViewController: StatefulViewController {
 }
 
 extension PassengerListViewController: PassengerListDisplaying {
-    func displayPassengerList(_ passengers: [PassengerViewModel]) {
-        self.passengers = passengers
+    func displayPassengerList(_ passengerList: [PassengerViewModel]) {
+        self.passengerList = passengerList
         tableView.reloadData()
         endLoadingState()
         spinner.stopAnimating()
@@ -115,7 +115,7 @@ extension PassengerListViewController: PassengerListDisplaying {
 
 extension PassengerListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        passengers.count
+        passengerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,7 +124,7 @@ extension PassengerListViewController: UITableViewDataSource, UITableViewDelegat
             for: indexPath
         ) as? PassengerListTableViewCell else { return UITableViewCell() }
         
-        let item = passengers[indexPath.row]
+        let item = passengerList[indexPath.row]
         cell.setup(with: item)
         return cell
     }
