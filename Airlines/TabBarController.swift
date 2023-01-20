@@ -9,6 +9,7 @@ private extension TabBarController {
 
 final class TabBarController: UITabBarController {
     private typealias Localizable = Strings.Navigation
+    private let dependencies = DependencyContainer()
     
     private lazy var firstTabController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -18,7 +19,10 @@ final class TabBarController: UITabBarController {
             tag: Item.airlines.rawValue
         )
         
-        let coordinator = AirlineFlowCoordinator(navigationController: navigationController)
+        let coordinator = AirlineFlowCoordinator(
+            navigationController: navigationController,
+            dependencies: dependencies
+        )
         coordinator.start()
         
         return navigationController
@@ -32,7 +36,10 @@ final class TabBarController: UITabBarController {
             tag: Item.passengers.rawValue
         )
         
-        let coordinator = PassengerFlowCoordinator(navigationController: navigationController)
+        let coordinator = PassengerFlowCoordinator(
+            navigationController: navigationController,
+            dependencies: dependencies
+        )
         coordinator.start()
         
         return navigationController
