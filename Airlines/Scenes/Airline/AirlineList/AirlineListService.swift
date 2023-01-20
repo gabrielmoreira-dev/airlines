@@ -7,7 +7,7 @@ protocol AirlineListServicing {
 typealias AirlineListCompletion = (Result<[Airline], ApiError>) -> Void
 
 final class AirlineListService {
-    typealias Dependencies = HasMainQueue
+    typealias Dependencies = HasSession & HasMainQueue
     private let dependencies: Dependencies
     
     private var decoder: JSONDecoder {
@@ -25,7 +25,7 @@ extension AirlineListService: AirlineListServicing {
     func fetchAirlineList(completion: @escaping AirlineListCompletion) {
         let endpoint = AirlineEndpoint.airlineList
         let api = Api<[Airline]>(endpoint: endpoint)
-        api.execute(decoder: decoder) { [weak self] result in
+        api.execute(session: dependencies.session, decoder: decoder) { [weak self] result in
             self?.dependencies.mainQueue.async { completion(result) }
         }
     }

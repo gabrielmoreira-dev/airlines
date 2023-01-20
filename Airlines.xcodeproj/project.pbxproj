@@ -58,6 +58,7 @@
 		C0BEBC7E28AC8C62000EC428 /* PassengerListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC7D28AC8C62000EC428 /* PassengerListPresenter.swift */; };
 		C0BEBC8228AC8C81000EC428 /* PassengerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC8128AC8C81000EC428 /* PassengerListService.swift */; };
 		C0BEBC8628AC8CA2000EC428 /* PassengerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBC8528AC8CA2000EC428 /* PassengerListViewController.swift */; };
+		C0C7515D297B3952002844A2 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C7515C297B3952002844A2 /* NetworkingProtocols.swift */; };
 		C0CCF6A128A7F9D400E64BEB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */; };
 		C0D2619128B006360037A3B5 /* PassengerPayload+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2619028B006360037A3B5 /* PassengerPayload+Fixtures.swift */; };
 		C0D3350028A73E1300F44D27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D334FF28A73E1300F44D27 /* LoadingView.swift */; };
@@ -139,6 +140,7 @@
 		C0BEBC7D28AC8C62000EC428 /* PassengerListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListPresenter.swift; sourceTree = "<group>"; };
 		C0BEBC8128AC8C81000EC428 /* PassengerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListService.swift; sourceTree = "<group>"; };
 		C0BEBC8528AC8CA2000EC428 /* PassengerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerListViewController.swift; sourceTree = "<group>"; };
+		C0C7515C297B3952002844A2 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
 		C0CCF6A028A7F9D400E64BEB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C0D2619028B006360037A3B5 /* PassengerPayload+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PassengerPayload+Fixtures.swift"; sourceTree = "<group>"; };
 		C0D334FF28A73E1300F44D27 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -260,12 +262,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		137DB65D263F39B300B4EEBF /* Extension */ = {
+		137DB65D263F39B300B4EEBF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				137DB65E263F39CD00B4EEBF /* UIImageView+Extension.swift */,
 			);
-			path = Extension;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		137DB660263F5A5100B4EEBF /* Passenger */ = {
@@ -461,10 +463,11 @@
 		C0A7AE272858203500D42292 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				137DB65D263F39B300B4EEBF /* Extension */,
+				137DB65D263F39B300B4EEBF /* Helpers */,
 				C0A7AE282858204D00D42292 /* Api.swift */,
 				C0A7AE2C285820D300D42292 /* ApiEndpoint.swift */,
 				C0A7AE2F2858251100D42292 /* ApiError.swift */,
+				C0C7515C297B3952002844A2 /* NetworkingProtocols.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 				137DB64E263F0D4500B4EEBF /* AirlineListPresenter.swift in Sources */,
 				C0B8477E28A9A6CD00DA180E /* Space.swift in Sources */,
 				C0EE98D528AC3C67004D878F /* StatefulViewController.swift in Sources */,
+				C0C7515D297B3952002844A2 /* NetworkingProtocols.swift in Sources */,
 				C029195228AD30DD00ECC76A /* Passenger.swift in Sources */,
 				C0F5FB6028A8B906001E3396 /* Strings.generated.swift in Sources */,
 				137DB62C263F071600B4EEBF /* AppDelegate.swift in Sources */,

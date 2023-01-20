@@ -7,7 +7,7 @@ protocol PassengerListServicing {
 typealias PassengerListCompletion = (Result<PassengerPayload, ApiError>) -> Void
 
 final class PassengerListService {
-    typealias Dependencies = HasMainQueue
+    typealias Dependencies = HasSession & HasMainQueue
     private let dependencies: Dependencies
     
     private var decoder: JSONDecoder {
@@ -25,7 +25,7 @@ extension PassengerListService: PassengerListServicing {
     func fetchPassengerList(page: Int, completion: @escaping PassengerListCompletion) {
         let endpoint = PassengerEndpoint.passengerList(page: page)
         let api = Api<PassengerPayload>(endpoint: endpoint)
-        api.execute(decoder: decoder) { [weak self] result in
+        api.execute(session: dependencies.session, decoder: decoder) { [weak self] result in
             self?.dependencies.mainQueue.async { completion(result) }
         }
     }
